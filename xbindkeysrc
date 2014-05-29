@@ -1,0 +1,17 @@
+"amixer set Master 5dB+ & ~/dotfiles/dwm/dwm-status.single"
+	XF86AudioRaiseVolume
+
+"amixer set Master 5dB- & ~/dotfiles/dwm/dwm-status.single"
+	XF86AudioLowerVolume
+
+"mpc toggle"
+	XF86AudioPlay
+
+"mpc next"
+	XF86AudioNext
+
+"mpc prev"
+	XF86AudioPrev
+
+"~/dotfiles/bin/mpdmenu"
+	m:0x8 + c:34

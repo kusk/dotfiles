@@ -1,0 +1,18 @@
+#!/bin/zsh
+
+echo -n "SomaFM: Groovesalad(1), Cliphop(2), Dronezone(3), Beatblender(4) > "
+read station
+
+if [ "$station" -eq 1 ]; then
+	echo "Streaming Groovesalad"
+	mpg123 -Cv --title http://ice.somafm.com/groovesalad
+elif [ "$station" -eq 2 ]; then
+	echo "Streaming Cliqhop"
+	mpg123 -Cv --title http://ice.somafm.com/cliqhop
+elif [ "$station" -eq 3 ]; then
+	echo "Streaming Dronezone"
+	mpg123 -Cv --title http://ice.somafm.com/dronezone
+elif [ "$station" -eq 4 ]; then
+	echo "Streaming Beatblender"
+	mpg123 -Cv --title http://ice.somafm.com/beatblender
+fi

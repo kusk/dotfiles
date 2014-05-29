@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -f $HOME/.dmenurc ]; then
+   source $HOME/.dmenurc
+   DMENU="$DMENU -p 'MPD add'"
+else
+   DMENU="dmenu -p 'mpd' -i -nb '#000000' -nf '#ffffff' -fn '6x12' -sb '#000000' -sf '#17bbe3'"
+fi
+
+QUERY_TYPES="artist
+album
+title"
+
+QUERY_TYPE=$(echo "$QUERY_TYPES" | eval $DMENU)
+
+if [ $? -eq 0 ]; then
+   RESULTS=$( mpc -q list "$QUERY_TYPE" | eval $DMENU )
+   if [ $? -eq 0 ]; then
+      mpc -q clear
+      mpc -q findadd "$QUERY_TYPE" "$RESULTS"
+      mpc -q play
+   fi
+fi
