@@ -1,6 +1,6 @@
 # Deploy script
 echo "Installing applications"
-sudo apt-get -y -q -q install xclip nmap hsetroot tmux zsh mpc mpd gmpc vlc vim xbindkeys x11-xserver-utils build-essential feh htop
+sudo apt-get -y -q -q install xclip nmap hsetroot tmux zsh vlc vim xbindkeys x11-xserver-utils build-essential feh htop
 sudo apt-get -y -q -q install libx11-dev libxinerama-dev sharutils suckless-tools chromium-browser urxvt filezilla
 
 echo "Fetching Oh-My-Zsh"
