@@ -1,2 +1,0 @@
-#!/bin/sh
-colortail -f /var/log/syslog -n 50

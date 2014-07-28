@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# A fix for Android-Studio in dwm
-# It will fake java to believe the WM is LG3D.
-
-wmname LG3D
-~/android-studio/bin/studio.sh
-
