@@ -14,9 +14,10 @@ syntax on
 
 set hlsearch
 
+
 filetype on
 set number
-colorscheme elflord
+colorscheme delek
 highlight LineNr ctermfg=darkgrey ctermbg=black
 call pathogen#infect()
 " set cindent
@@ -56,3 +57,6 @@ nmap <s-s> :wq<CR>
 
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
+
+
+highlight LineNr ctermfg=yellow
