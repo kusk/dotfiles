@@ -1,0 +1,6 @@
+CHANNEL=HOUSE
+
+PLAYER='mplayer -cache 512 -cache-min 50 -playlist'
+
+
+MENU=yes
