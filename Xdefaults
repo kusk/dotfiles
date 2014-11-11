@@ -1,9 +1,9 @@
 URxvt*scrollBar: false
 URxvt*inheritPixmap:false
-URxvt.transparent: true
-URxvt.shading: 30
-URxvt.inheritPixmap: true
-URxvt.tintColor: #666666
+!URxvt.transparent: false
+!URxvt.shading: 30
+!URxvt.inheritPixmap: true
+!URxvt.tintColor: #666666
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: False
 URxvt*font: 7x13
