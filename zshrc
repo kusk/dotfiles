@@ -37,6 +37,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/a/bin:~/dotfiles/bin:~/.local/bin:/usr/local/lib
 export GOPATH=~/src/go/imports
 
+export PATH=$PATH:/usr/local/bin
+
 JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
 
@@ -54,7 +56,7 @@ alias dronezone="mpg123 -Cq http://ice.somafm.com/dronezone"
 
 alias df='df -h'
 
-alias ll='ls -ABFhovX --color=auto --group-directories-first --time-style=long-iso'
+alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
 
 alias apt-s='apt-cache search'
 alias apt-i='sudo apt-get install'
