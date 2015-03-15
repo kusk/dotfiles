@@ -1,5 +1,0 @@
-"amixer set Master 5dB+ & ~/dotfiles/dwm/dwm-status.single"
-	XF86AudioRaiseVolume
-
-"amixer set Master 5dB- & ~/dotfiles/dwm/dwm-status.single"
-	XF86AudioLowerVolume
