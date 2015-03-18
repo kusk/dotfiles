@@ -1,7 +1,7 @@
 # Deploy script
 echo "Installing applications"
-sudo apt-get -y -q -q install nmap hsetroot tmux zsh vlc vim x11-xserver-utils build-essential feh htop mplayer
-sudo apt-get -y -q -q install libx11-dev libxinerama-dev sharutils suckless-tools chromium-browser urxvt filezilla
+sudo apt-get -y -q -q install git nmap hsetroot tmux zsh vlc vim feh htop mplayer
+sudo apt-get -y -q -q install chromium-browser urxvt filezilla gimp mc sqlitebrowser wireshark 
 
 echo "Fetching Oh-My-Zsh"
 cd
