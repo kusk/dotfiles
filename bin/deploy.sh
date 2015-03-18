@@ -17,6 +17,7 @@ ln -s ~/dotfiles/vimrc .vimrc
 ln -s ~/dotfiles/difmplayrc .difmplayrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
 ln -s ~/dotfiles/zshrc .zshrc
+ln -s ~/dotfiles/gdbinit .gdbinit
 ln -s ~/dotfiles/Xdefaults .Xdefaults
 cp -s ~/dotfiles/oh-my-zsh/compact.zsh-theme ~/.oh-my-zsh/themes/compact.zsh-theme
 
