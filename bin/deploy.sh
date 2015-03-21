@@ -1,13 +1,16 @@
 # Deploy script
 echo "Installing applications"
 sudo apt-get -y -q -q install git nmap hsetroot tmux zsh vlc vim feh htop mplayer
-sudo apt-get -y -q -q install chromium-browser urxvt filezilla gimp mc sqlitebrowser wireshark 
+sudo apt-get -y -q -q install chromium-browser rxvt-unicode filezilla gimp mc sqlitebrowser wireshark 
 
 echo "Fetching Oh-My-Zsh"
 cd
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-
+.
 echo "Deploying dotfiles"
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle
+
 
 cd ~/
 
@@ -18,6 +21,7 @@ ln -s ~/dotfiles/difmplayrc .difmplayrc
 ln -s ~/dotfiles/tmux.conf .tmux.conf
 ln -s ~/dotfiles/zshrc .zshrc
 ln -s ~/dotfiles/gdbinit .gdbinit
+rm -rf ~/.Xdefaults
 ln -s ~/dotfiles/Xdefaults .Xdefaults
 cp -s ~/dotfiles/oh-my-zsh/compact.zsh-theme ~/.oh-my-zsh/themes/compact.zsh-theme
 
