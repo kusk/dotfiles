@@ -41,6 +41,7 @@ export PATH=$PATH:/usr/local/bin
 
 JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
+alias mount_www='sshfs a@nuc:/var/www /home/a/www'
 
 alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 
