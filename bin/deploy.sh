@@ -1,7 +1,12 @@
 # Deploy script
 echo "Installing applications"
-sudo apt-get -y -q -q install nmap hsetroot tmux zsh vlc vim feh htop mplayer
-sudo apt-get -y -q -q install chromium-browser rxvt-unicode filezilla gimp mc sqlitebrowser wireshark 
+sudo apt-get -y -q -q install curl dwm firefox iceweasel build-essential libx11-dev libxinerama-dev sharutils nmap hsetroot tmux zsh vlc vim feh htop mplayer
+sudo apt-get -y -q -q install chromium-browser rxvt-unicode filezilla gimp mc sqlitebrowser wireshark git
+
+
+echo "Gitting dotfiles"
+cd ~/
+git clone https://github.com/kusk/dotfiles.git
 
 echo "Creating symlinks"
 
