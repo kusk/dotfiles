@@ -1,6 +1,6 @@
 Host nas
 User admin
-Hostname 192.168.0.14
+Hostname 192.168.0.10
 
 Host pi
 User a
@@ -14,6 +14,10 @@ Hostname 192.168.0.19
 Host soekris
 User a
 Hostname 192.168.0.15
+
+Host nuc
+User a
+Hostname 192.168.0.20
 
 Host home
 User a
