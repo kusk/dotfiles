@@ -42,7 +42,7 @@ export PATH=$PATH:/usr/local/bin
 JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
 alias mount_www='sshfs a@nuc:/var/www /home/a/www'
-
+alias mount_nuc='sshfs a@nuc:/home/a/files /home/a/nuc'
 alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 
 alias myip='curl ifconfig.me/all'
@@ -64,6 +64,8 @@ alias apt-i='sudo apt-get install'
 alias singlescreen='xrandr --output HDMI1 --off --output VIRTUAL1 --off --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x1080 --rotate normal --output VGA1 --off'
 
 alias multiscreen='xrandr --output HDMI1 --off --output DP1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP1 --mode 1920x1080 --pos 280x1440 --rotate normal --output VGA1 --off'
+
+alias topscreen='xrandr --output HDMI1 --off --output DP1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP1 --off'
 
 alias syslog='colortail -f /var/log/syslog -n 50'
 
