@@ -6,6 +6,7 @@ sudo apt-get -y -q -q install chromium-browser filezilla gimp mc sqlitebrowser w
 echo "Creating symlinks"
 
 cd ~/
+ln -s ~/dotfiles/themes .themes
 ln -s ~/dotfiles/vim .vim
 ln -s ~/dotfiles/ssh .ssh
 ln -s ~/dotfiles/vimrc .vimrc
