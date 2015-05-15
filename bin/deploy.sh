@@ -1,11 +1,12 @@
 # Deploy script
 echo "Installing applications"
-sudo apt-get -y -q -q install git curl nmap tmux zsh vlc vim feh htop mplayer mpsyt
+sudo apt-get -y -q -q install git curl nmap tmux zsh vlc vim feh htop mplayer
 sudo apt-get -y -q -q install chromium-browser filezilla gimp mc sqlitebrowser wireshark
 
 echo "Creating symlinks"
 
 cd ~/
+mkdir ~/dotfiles/vim
 ln -s ~/dotfiles/themes .themes
 ln -s ~/dotfiles/vim .vim
 ln -s ~/dotfiles/ssh .ssh
@@ -16,8 +17,17 @@ ln -s ~/dotfiles/zshrc .zshrc
 ln -s ~/dotfiles/gdbinit .gdbinit
 rm -rf ~/.Xdefaults
 ln -s ~/dotfiles/Xdefaults .Xdefaults
+mkdir ~/.config/xfce4/terminal
 cp ~/dotfiles/config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/
 cp ~/dotfiles/config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+
+
+rm -rf ~/Musik
+rm -rf ~/Offentligt
+rm -rf ~/Skabeloner
+rm -rf ~/Videoklip
+rm -rf ~/Dokumenter
+rm -rf ~/Billeder
 
 echo "Gitting oh-my-zsh and vim plugins"
 mkdir ~/.vim/autoload
