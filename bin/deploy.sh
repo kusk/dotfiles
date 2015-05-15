@@ -33,7 +33,9 @@ echo "Gitting oh-my-zsh and vim plugins"
 mkdir ~/.vim/autoload
 mkdir ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-sensible.git
+cd
 git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
