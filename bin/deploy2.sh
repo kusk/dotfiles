@@ -7,6 +7,7 @@ echo "4: To deploy Xubuntu/Ubuntu packages"
 echo "5: To deploy patched fonts"
 echo "6: To deploy XFCE4 themes"
 echo "7: To remove Xubuntu/Ubuntu home dirs"
+echo "0: To exit"
 echo -n "> "
 read choice
 
@@ -54,4 +55,6 @@ elif [ "$choice" -eq 7 ]; then
 	rm -rf ~/Dokumenter
 	rm -rf ~/Billeder
 	echo "Done!"
+elif [ "$choice" -eq 0 ]; then
+	exit
 fi
