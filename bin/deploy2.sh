@@ -1,0 +1,56 @@
+#!/bin/sh
+echo "\033[0;47m\033[1;30m         Deploy script         \033[0m"
+echo "\033[0mPress \033[0;31m1\033[0;37m to deploy vim-scripts"
+echo "\033[0mPress \033[0;31m2\033[0;37m to deploy oh-my-zsh"
+echo "\033[0mPress \033[0;31m3\033[0;37m to deploy fancy apt prompt"
+echo "\033[0mPress \033[0;31m4\033[0;37m to deploy Xubuntu/Ubuntu packages"
+echo "\033[0mPress \033[0;31m5\033[0;37m to deploy patched fonts"
+echo "\033[0mPress \033[0;31m6\033[0;37m to deploy XFCE4 themes"
+echo "\033[0mPress \033[0;31m7\033[0;37m to remove Xubuntu/Ubuntu home dirs"
+echo -n "\033[1;36m$>\033[1;37m "
+read choice
+
+if [ "$choice" -eq 1 ]; then
+	echo "Deploying vim"
+	echo "Creating dirs and symlinks"
+	mkdir ~/dotfiles/vim
+	ln -s ~/dotfiles/vim ~/.vim
+	ln -s ~/dotfiles/vimrc ~/.vimrc
+	mkdir ~/dotfiles/vim/autoload
+	mkdir ~/dotfiles/vim/bundle
+	echo "Curling and gitting scripts"
+	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+	git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
+	git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
+	git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+elif [ "$choice" -eq 2 ]; then
+	echo "Deploying zsh"
+	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	chsh -s /usr/bin/zsh
+elif [ "$choice" -eq 3 ]; then
+	echo "Deploying fancy_apt"
+	sudo echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
+	echo "Done!"
+elif [ "$choice" -eq 4 ]; then
+	echo "Deploying Ubuntu packs"
+	sudo apt-get -y -q -q install curl nmap tmux zsh vlc vim feh htop mplayer
+	sudo apt-get -y -q -q install chromium-browser filezilla gimp mc sqlitebrowser wireshark
+elif [ "$choice" -eq 5 ]; then
+	echo "Deploying patched fonts"
+	cd /tmp
+	git clone https://github.com/powerline/fonts
+	cd /tmp/fonts
+	sh install.sh
+elif [ "$choice" -eq 6 ]; then
+	echo "Deploying XFCE4 themes"
+	ln -s ~/dotfiles/themes ~/.themes
+elif [ "$choice" -eq 7 ]; then
+	echo "Removing directories"
+	rm -rf ~/Musik
+	rm -rf ~/Offentligt
+	rm -rf ~/Skabeloner
+	rm -rf ~/Videoklip
+	rm -rf ~/Dokumenter
+	rm -rf ~/Billeder
+	echo "Done!"
+fi
