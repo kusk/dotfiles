@@ -60,8 +60,6 @@ alias df='df -h'
 
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
 
-alias apt-s='apt-cache search'
-alias apt-i='sudo apt-get install'
 alias singlescreen='xrandr --output HDMI1 --off --output VIRTUAL1 --off --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x1080 --rotate normal --output VGA1 --off'
 
 alias multiscreen='xrandr --output HDMI1 --off --output DP1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP1 --mode 1920x1080 --pos 280x1440 --rotate normal --output VGA1 --off'
