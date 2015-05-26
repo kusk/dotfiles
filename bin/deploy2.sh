@@ -27,6 +27,7 @@ elif [ "$choice" -eq 2 ]; then
 	echo "Deploying zsh"
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 	chsh -s /usr/bin/zsh
+	ln -s ~/dotfiles/zshrc ~/.zshrc
 elif [ "$choice" -eq 3 ]; then
 	echo "Deploying fancy_apt"
 	sudo echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
