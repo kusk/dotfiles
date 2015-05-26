@@ -43,7 +43,6 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 #echo "Setting up urxvt and oh-my-zsh"
 #sudo cp ~/dotfiles/urxvt/clipboard /usr/lib/urxvt/perl/clipboard
-cp -s ~/dotfiles/oh-my-zsh/compact.zsh-theme ~/.oh-my-zsh/themes/compact.zsh-theme
 
 echo "Setting shell"
 chsh -s /usr/bin/zsh

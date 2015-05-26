@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="compact"
+ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,6 +43,7 @@ JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
 alias mount_www='sshfs a@nuc:/var/www /home/a/www'
 alias mount_nuc='sshfs a@nuc:/home/a/files /home/a/nuc'
+alias mount_nuc_outside='sshfs a@maep.dk:/home/a/files /home/a/nuc'
 alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 
 alias myip='curl ifconfig.me/all'
