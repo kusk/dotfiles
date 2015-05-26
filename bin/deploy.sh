@@ -17,10 +17,6 @@ ln -s ~/dotfiles/zshrc .zshrc
 ln -s ~/dotfiles/gdbinit .gdbinit
 rm -rf ~/.Xdefaults
 ln -s ~/dotfiles/Xdefaults .Xdefaults
-mkdir ~/.config/xfce4/terminal
-cp ~/dotfiles/config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/
-cp ~/dotfiles/config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
-
 
 rm -rf ~/Musik
 rm -rf ~/Offentligt
