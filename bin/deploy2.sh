@@ -1,13 +1,13 @@
 #!/bin/sh
-echo "\033[0;47m\033[1;30m         Deploy script         \033[0m"
-echo "\033[0mPress \033[0;31m1\033[0;37m to deploy vim-scripts"
-echo "\033[0mPress \033[0;31m2\033[0;37m to deploy oh-my-zsh"
-echo "\033[0mPress \033[0;31m3\033[0;37m to deploy fancy apt prompt"
-echo "\033[0mPress \033[0;31m4\033[0;37m to deploy Xubuntu/Ubuntu packages"
-echo "\033[0mPress \033[0;31m5\033[0;37m to deploy patched fonts"
-echo "\033[0mPress \033[0;31m6\033[0;37m to deploy XFCE4 themes"
-echo "\033[0mPress \033[0;31m7\033[0;37m to remove Xubuntu/Ubuntu home dirs"
-echo -n "\033[1;36m$>\033[1;37m "
+echo "Deploy script"
+echo "1: To deploy vim-scripts"
+echo "2: To deploy oh-my-zsh"
+echo "3: To deploy fancy apt prompt"
+echo "4: To deploy Xubuntu/Ubuntu packages"
+echo "5: To deploy patched fonts"
+echo "6: To deploy XFCE4 themes"
+echo "7: To remove Xubuntu/Ubuntu home dirs"
+echo -n "> "
 read choice
 
 if [ "$choice" -eq 1 ]; then
