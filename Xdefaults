@@ -1,81 +1,99 @@
-URxvt*scrollBar: false
-URxvt*inheritPixmap:false
-!URxvt.transparent: false
-!URxvt.shading: 30
-!URxvt.inheritPixmap: true
-!URxvt.tintColor: #666666
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.iso14755: False
-URxvt*font: 7x13
- 
-URxvt*secondaryscroll:   true
-URxvt*matcher.button:    1
-URxvt*cursorBlink:       true
-URxvt*cursorUnderline:   true
-URxvt*cursorColor:       #ffffff
-URxvt*foreground:	 #ffffff
-URxvt*background:	 #000000
-URxvt*colorBD:           #b4927d
-URxvt*internalBorder:    3
 
 
-URxvt*allow_bold:        true
-URxvt*depth:             24
-URxvt*dynamicColors:     on
 
-Xft*dpi:                 96
-Xft*antialias:           true
-Xft*hinting:             full
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
 
-URxvt*mapAlert:          true
-URxvt*visualBell:        true
-URxvt*urgentOnBell:      true
-URxvt.perl-ext-common: default,clipboard,matcher
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
 
-! black
-*color0: #000000
+!-------------------------------------------------------------------------------
+! URxvt settings
+! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
+! More info at:
+! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+!-------------------------------------------------------------------------------
 
-! bright_black
-*color8: #151515
+URxvt.depth:                32
+URxvt.geometry:             110x40
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            50
+URxvt.internalBorder:       0
+URxvt.lineSpace:            0
 
-! red
-*color1: #b35472
+! Fonts
+URxvt.allow_bold:           false
+/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
+URxvt*font: xft:Monospace:pixelsize=14
+URxvt*boldFont: xft:Monospace:pixelsize=14
+urxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=11 
 
-! bright_red
-*color9: #bb6480
+! Fix font space
+URxvt*letterSpace: -1
 
-! green
-*color2: #72b354
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
 
-! bright_green
-*color10: #80bb64
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
 
-! yellow
-*color3: #b39554
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
 
-! bright_yellow
-*color11: #bb9f64
+! Pointer
+URxvt.pointerBlank:         true
 
-! blue
-*color4: #5472b3
+!!Source http://github.com/altercation/solarized
 
-! bright_blue
-*color12: #6480bb
+*background: #002b36
+*foreground: #657b83
+!!*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
 
-! magenta
-*color5: #9554b3
+!! black dark/light
+*color0: #073642
+*color8: #002b36
 
-! bright_magenta
-*color13: #9f64bb
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
 
-! cyan
-*color6: #54b395
+!! green dark/light
+*color2: #859900
+*color10: #586e75
 
-! bright_cyan
-*color14: #64bb9f
+!! yellow dark/light
+*color3: #b58900
+*color11: #657b83
 
-! white
-*color7: #d9d9d9
+!! blue dark/light
+*color4: #268bd2
+*color12: #839496
 
-! bright_white
-*color15: #ffffff
+!! magenta dark/light
+*color5: #d33682
+*color13: #6c71c4
+
+!! cyan dark/light
+*color6: #2aa198
+*color14: #93a1a1
+
+!! white dark/light
+*color7: #eee8d5
+*color15: #fdf6e3
