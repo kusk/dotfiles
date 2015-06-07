@@ -45,8 +45,8 @@ TERM xterm-256color
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
-
-
+TERM urxvt
+TERM rxvt-unicode-256color
 # ------------------------------------------------------------------------------
 # Default types setup
 # ------------------------------------------------------------------------------
@@ -165,7 +165,7 @@ EXEC 01;38;05;46
 .pcx             00;38;05;41
 
 # Video formats
-.mov             01;38;05;132
+.mov             01;38;05;1
 .mpg             01;38;05;132
 .mpeg            01;38;05;132
 .m2v             01;38;05;132
