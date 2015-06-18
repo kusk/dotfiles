@@ -1,6 +1,12 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+insert_sudo () { zle beginning-of-line; zle -U "sudo " }
+zle -N insert-sudo insert_sudo
+bindkey "^[s" insert-sudo
+
+
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
