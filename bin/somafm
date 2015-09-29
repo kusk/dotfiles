@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo -n "SomaFM: Groovesalad(1), Cliphop(2), Dronezone(3), Beatblender(4) > "
+echo -n "SomaFM: Groovesalad(1), Cliphop(2), Dronezone(3), Beatblender(4), Defcon(5) > "
 read station
 
 if [ "$station" -eq 1 ]; then
