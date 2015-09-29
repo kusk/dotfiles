@@ -15,4 +15,7 @@ elif [ "$station" -eq 3 ]; then
 elif [ "$station" -eq 4 ]; then
 	echo "Streaming Beatblender"
 	mpg123 -Cv --title http://ice.somafm.com/beatblender
+elif [ "$station" -eq 5 ]; then
+	echo "Streaming Defcon"
+	mpg123 -Cv --title http://ice.somafm.com/defcon
 fi
