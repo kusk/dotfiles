@@ -1,4 +1,9 @@
 execute pathogen#infect()
+set incsearch
+set hlsearch
+set cursorline
+set showmatch
+set wildmenu
 syntax on
 set mouse=a
 set number
