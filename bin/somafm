@@ -5,17 +5,17 @@ read station
 
 if [ "$station" -eq 1 ]; then
 	echo "Streaming Groovesalad"
-	mpg123 -Cv --title http://ice.somafm.com/groovesalad
+	mpg123 -C --title http://ice.somafm.com/groovesalad
 elif [ "$station" -eq 2 ]; then
 	echo "Streaming Cliqhop"
-	mpg123 -Cv --title http://ice.somafm.com/cliqhop
+	mpg123 -C --title http://ice.somafm.com/cliqhop
 elif [ "$station" -eq 3 ]; then
 	echo "Streaming Dronezone"
-	mpg123 -Cv --title http://ice.somafm.com/dronezone
+	mpg123 -C --title http://ice.somafm.com/dronezone
 elif [ "$station" -eq 4 ]; then
 	echo "Streaming Beatblender"
-	mpg123 -Cv --title http://ice.somafm.com/beatblender
+	mpg123 -C --title http://ice.somafm.com/beatblender
 elif [ "$station" -eq 5 ]; then
 	echo "Streaming Defcon"
-	mpg123 -Cv --title http://ice.somafm.com/defcon
+	mpg123 -C --title http://ice.somafm.com/defcon
 fi
