@@ -1,21 +1,44 @@
 #!/bin/zsh
 
-echo -n "SomaFM: Groovesalad(1), Cliphop(2), Dronezone(3), Beatblender(4), Defcon(5) > "
+echo "SomaFM"
+echo "\e[1;32m1\e[0;91m/\e[0;36mGroovesalad\e[0;91m/\e[0;37mA nicely chilled plate of ambient/downtempo beats and grooves."
+echo "\e[1;32m2\e[0;91m/\e[0;36mCliqhop\e[0;91m/\e[0;37mBlips'n'beeps backed mostly w/beats. Intelligent Dance Music."
+echo "\e[1;32m3\e[0;91m/\e[0;36mDronezone\e[0;91m/\e[0;37mServed best chilled, safe with most medications. Atmospheric textures with minimal beats."
+echo "\e[1;32m4\e[0;91m/\e[0;36mBeatblender\e[0;91m/\e[0;37mA late night blend of deep-house and downtempo chill."
+echo "\e[1;32m5\e[0;91m/\e[0;36mDefcon\e[0;91m/\e[0;37mMusic for Hacking. The DEF CON Year-Round Channel."
+echo "\e[1;32m6\e[0;91m/\e[0;36mFluid\e[0;91m/\e[0;37mDrown in the electronic sound of instrumental hiphop, future soul and liquid trap."
+echo "\e[1;32m7\e[0;91m/\e[0;36mThe Trip\e[0;91m/\e[0;37mProgressive house / trance. Tip top tunes."
+echo "\e[1;32m8\e[0;91m/\e[0;36mDoomed\e[0;91m/\e[0;37mDark industrial/ambient music for tortured souls."
+echo "\e[1;32m9\e[0;91m/\e[0;36mSF 10-33\e[0;91m/\e[0;37mAmbient music mixed with the sounds of San Francisco public safety radio traffic."
+
+echo -n "\e[0;97m> "
 read station
 
 if [ "$station" -eq 1 ]; then
-	echo "Streaming Groovesalad"
-	mpg123 -C --title http://ice.somafm.com/groovesalad
+	echo "Streaming Groovesalad/A nicely chilled plate of ambient/downtempo beats and grooves."
+	mpv --really-quiet --title  --title http://ice.somafm.com/groovesalad
 elif [ "$station" -eq 2 ]; then
-	echo "Streaming Cliqhop"
-	mpg123 -C --title http://ice.somafm.com/cliqhop
+	echo "Streaming Cliqhop/Blips'n'beeps backed mostly w/beats. Intelligent Dance Music."
+	mpv --really-quiet --title  --title http://ice.somafm.com/cliqhop
 elif [ "$station" -eq 3 ]; then
-	echo "Streaming Dronezone"
-	mpg123 -C --title http://ice.somafm.com/dronezone
+	echo "Streaming Dronezone/Served best chilled, safe with most medications. Atmospheric textures with minimal beats."
+	mpv --really-quiet --title  --title http://ice.somafm.com/dronezone
 elif [ "$station" -eq 4 ]; then
-	echo "Streaming Beatblender"
-	mpg123 -C --title http://ice.somafm.com/beatblender
+	echo "Streaming Beatblender/A late night blend of deep-house and downtempo chill."
+	mpv --really-quiet --title  --title http://ice.somafm.com/beatblender
 elif [ "$station" -eq 5 ]; then
-	echo "Streaming Defcon"
-	mpg123 -C --title http://ice.somafm.com/defcon
+	echo "Streaming Defcon/Music for Hacking. The DEF CON Year-Round Channel."
+	mpv --really-quiet --title  --title http://ice.somafm.com/defcon
+elif [ "$station" -eq 6 ]; then
+	echo "Fluid/Drown in the electronic sound of instrumental hiphop, future soul and liquid trap."
+	mpv --really-quiet --title  --title http://ice.somafm.com/fluid
+elif [ "$station" -eq 7 ]; then
+	echo "The Trip/Progressive house / trance. Tip top tunes."
+	mpv --really-quiet --title  --title http://ice.somafm.com/thetrip
+elif [ "$station" -eq 8 ]; then
+	echo "Doomed/Dark industrial/ambient music for tortured souls."
+	mpv --really-quiet --title  --title http://ice.somafm.com/doomed
+elif [ "$station" -eq 9 ]; then
+	echo "SF 10-33/Ambient music mixed with the sounds of San Francisco public safety radio traffic."
+	mpv --really-quiet --title  --title http://ice.somafm.com/sf1033
 fi
