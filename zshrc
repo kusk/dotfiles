@@ -76,5 +76,5 @@ alias topscreen='xrandr --output HDMI1 --off --output DP1 --mode 2560x1440 --pos
 
 alias syslog='colortail -f /var/log/syslog -n 50'
 
-# ls colorizing with dircolors.
-(( $+commands[dircolors] )) && eval $(dircolors ~/dotfiles/dir_colors)
+
+eval `dircolors ~/dotfiles/dircolors.256dark`
