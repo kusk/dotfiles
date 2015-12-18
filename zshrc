@@ -46,6 +46,9 @@ export PATH=$PATH:/usr/local/bin
 
 JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
+
+
+alias tmux='tmux -2'
 alias mount_www='sshfs a@nuc:/var/www /home/a/www'
 alias mount_nuc='sshfs a@nuc:/home/a/files /home/a/nuc'
 alias mount_nuc_outside='sshfs a@maep.dk:/home/a/files /home/a/nuc'
