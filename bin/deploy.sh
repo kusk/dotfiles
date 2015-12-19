@@ -35,7 +35,10 @@ elif [ "$choice" -eq 3 ]; then
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
 	sudo apt-get -y -q -q install mpv htop zsh feh vlc tmux nmap curl
-	sudo apt-get -y -q -q install chromium-browser filezilla mc
+	sudo apt-get -y -q -q install chromium-browser filezilla mc vim python-pip python-qt4
+	sudo apt-get-repository ppa:numix/ppa
+	sudo apt-get update
+	sudo apt-get -y -q -q install numix-icon-theme-circle
 elif [ "$choice" -eq 5 ]; then
 	echo "Deploying patched fonts"
 	cd /tmp
@@ -43,8 +46,9 @@ elif [ "$choice" -eq 5 ]; then
 	cd /tmp/fonts
 	sh install.sh
 elif [ "$choice" -eq 6 ]; then
-	echo "Deploying XFCE4 themes"
+	echo "Deploying XFCE4 themes/Quicktile"
 	ln -s ~/dotfiles/themes ~/.themes
+	ln -s ~/dotfiles/quicktile.cfg ~/.config/quicktile.cfg
 elif [ "$choice" -eq 7 ]; then
 	echo "Removing directories"
 	rm -rf ~/Musik
