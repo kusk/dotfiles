@@ -13,7 +13,8 @@ let NERDTreeShowHidden=1
 let g:airline_powerline_fonts=1
 set background=dark
 colorscheme solarized
-
+let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 1
 map  <C-j> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-w> :tabnew<CR>
