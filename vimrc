@@ -19,3 +19,4 @@ map  <C-j> :tabn<CR>
 map  <C-h> :tabp<CR>
 map  <C-w> :tabnew<CR>
 map  <C-q> :tabclose<CR>
+nnoremap <buffer> <C-b> :exec '!python' shellescape(@%, 1)<cr>
