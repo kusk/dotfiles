@@ -21,10 +21,10 @@ if [ "$choice" -eq 4 ]; then
 	echo "Curling and gitting scripts"
 	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 	git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
-	git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
 	git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 	git clone https://github.com/edkolev/tmuxline.vim ~/.vim/bundle/tmuxline.vim
 	git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+	git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 elif [ "$choice" -eq 2 ]; then
 	echo "Deploying zsh"
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
