@@ -30,6 +30,7 @@ elif [ "$choice" -eq 2 ]; then
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 	chsh -s /usr/bin/zsh
 	ln -s ~/dotfiles/zshrc ~/.zshrc
+	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 elif [ "$choice" -eq 3 ]; then
 	echo "Deploying fancy_apt"
 	sudo echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
