@@ -17,6 +17,7 @@ if [ "$choice" -eq 4 ]; then
 	ln -s ~/dotfiles/vim ~/.vim
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 	mkdir ~/dotfiles/vim/autoload
+	ln -s ~/dotfiles/Xresources ~/.Xresources
 	mkdir ~/dotfiles/vim/bundle
 	echo "Curling and gitting scripts"
 	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
