@@ -19,29 +19,38 @@ read station
 
 if [ "$station" -eq 1 ]; then
 	echo "Streaming Groovesalad/A nicely chilled plate of ambient/downtempo beats and grooves."
+	echo Groovesalad > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/groovesalad
 elif [ "$station" -eq 2 ]; then
 	echo "Streaming Cliqhop/Blips'n'beeps backed mostly w/beats. Intelligent Dance Music."
+	echo Cliqhop > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/cliqhop
 elif [ "$station" -eq 3 ]; then
 	echo "Streaming Dronezone/Served best chilled, safe with most medications. Atmospheric textures with minimal beats."
+	echo Dronezone > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/dronezone
 elif [ "$station" -eq 4 ]; then
 	echo "Streaming Beatblender/A late night blend of deep-house and downtempo chill."
+	echo Beatblender > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/beatblender
 elif [ "$station" -eq 5 ]; then
 	echo "Streaming Defcon/Music for Hacking. The DEF CON Year-Round Channel."
+	echo "Defcon/Music" > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/defcon
 elif [ "$station" -eq 6 ]; then
 	echo "Fluid/Drown in the electronic sound of instrumental hiphop, future soul and liquid trap."
+	echo "Fluid/Drown" > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/fluid
 elif [ "$station" -eq 7 ]; then
 	echo "The Trip/Progressive house / trance. Tip top tunes."
+	echo "The Trip" > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/thetrip
 elif [ "$station" -eq 8 ]; then
 	echo "Doomed/Dark industrial/ambient music for tortured souls."
+	echo Doomed > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/doomed
 elif [ "$station" -eq 9 ]; then
 	echo "SF 10-33/Ambient music mixed with the sounds of San Francisco public safety radio traffic."
+	echo "SF 10-33" > ~/.somafm
 	mpv --really-quiet --title  --title http://ice.somafm.com/sf1033
 fi

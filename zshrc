@@ -64,6 +64,8 @@ alias secretagent="mpg123 -Cq http://ice.somafm.com/secretagent"
 alias christmas="mpg123 -Cq http://ice.somafm.com/christmas"
 alias dronezone="mpg123 -Cq http://ice.somafm.com/dronezone"
 
+alias weather="curl -4 http://wttr.in/Copenhagen"
+
 alias df='df -h'
 
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
