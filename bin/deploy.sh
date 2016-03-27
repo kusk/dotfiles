@@ -6,7 +6,7 @@ echo "3: To deploy fancy apt prompt"
 echo "4: To deploy vim-scripts"
 echo "5: To deploy patched fonts"
 echo "6: To deploy XFCE4 themes"
-echo "7: To remove Xubuntu/Ubuntu home dirs"
+echo "7: To deploy SublimeText3"
 echo "0: To exit"
 echo -n "> "
 read choice
@@ -54,13 +54,9 @@ elif [ "$choice" -eq 6 ]; then
 	ln -s ~/dotfiles/themes ~/.themes
 	ln -s ~/dotfiles/quicktile.cfg ~/.config/quicktile.cfg
 elif [ "$choice" -eq 7 ]; then
-	echo "Removing directories"
-	rm -rf ~/Musik
-	rm -rf ~/Offentligt
-	rm -rf ~/Skabeloner
-	rm -rf ~/Videoklip
-	rm -rf ~/Dokumenter
-	rm -rf ~/Billeder
+	echo "Downloading sublime configs"
+	scp maep.dk:~/apps/sublime-text-3.zip ~/.config/
+	unzip ~/.config/sublime-text-3 ./
 	echo "Done!"
 elif [ "$choice" -eq 0 ]; then
 	exit
