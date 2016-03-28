@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Insert sudo in line with ALT+s
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
@@ -46,6 +47,8 @@ export PATH=$PATH:/usr/local/bin
 
 JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
+alias apti='sudo apt-get install'
+alias apts='apt-cache search'
 
 alias free='free -h'
 alias tmux='tmux -2'
@@ -55,14 +58,6 @@ alias mount_nuc_outside='sshfs a@maep.dk:/home/a/files /home/a/nuc'
 alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 
 alias myip='curl ifconfig.me/all'
-alias portscan='nmap -v -sT'
-alias groovesalad="mpg123 -Cq http://ice.somafm.com/groovesalad"
-alias cliqhop="mpg123 -Cq http://ice.somafm.com/cliqhop"
-alias spacestation="mpg123 -Cq http://ice.somafm.com/spacestation"
-alias missioncontrol="mpg123 -Cq http://ice.somafm.com/missioncontrol"
-alias secretagent="mpg123 -Cq http://ice.somafm.com/secretagent"
-alias christmas="mpg123 -Cq http://ice.somafm.com/christmas"
-alias dronezone="mpg123 -Cq http://ice.somafm.com/dronezone"
 
 alias weather="curl -4 http://wttr.in/Copenhagen"
 
@@ -70,13 +65,6 @@ alias df='df -h'
 
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
 
-alias singlescreen='xrandr --output HDMI1 --off --output VIRTUAL1 --off --output DP1 --off --output eDP1 --mode 1920x1080 --pos 0x1080 --rotate normal --output VGA1 --off'
-
-alias multiscreen='xrandr --output HDMI1 --off --output DP1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP1 --mode 1920x1080 --pos 280x1440 --rotate normal --output VGA1 --off'
-
-alias topscreen='xrandr --output HDMI1 --off --output DP1 --mode 2560x1440 --pos 0x0 --rotate normal --output eDP1 --off'
-
-alias syslog='colortail -f /var/log/syslog -n 50'
 
 
 eval `dircolors ~/dotfiles/dircolors.256dark`

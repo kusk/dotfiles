@@ -6,7 +6,8 @@ echo "3: To deploy fancy apt prompt"
 echo "4: To deploy vim-scripts"
 echo "5: To deploy patched fonts"
 echo "6: To deploy XFCE4 themes"
-echo "7: To deploy SublimeText3"
+echo "7: To deploy SublimeText3 configs"
+echo "8: To upload SublimeText3 configs"
 echo "0: To exit"
 echo -n "> "
 read choice
@@ -54,9 +55,18 @@ elif [ "$choice" -eq 6 ]; then
 	ln -s ~/dotfiles/themes ~/.themes
 	ln -s ~/dotfiles/quicktile.cfg ~/.config/quicktile.cfg
 elif [ "$choice" -eq 7 ]; then
-	echo "Downloading sublime configs"
+	echo "Downloading SublimeText3 configs"
 	scp maep.dk:~/apps/sublime-text-3.zip ~/.config/
-	unzip ~/.config/sublime-text-3 ./
+	cd ~/.config
+	unzip sublime-text-3.zip
+	rm ~/.config/sublime-text-3.zip
+	echo "Done!"
+elif [ "$choice" -eq 8 ]; then
+	echo "Uploading SublimeText3 configs"
+	cd ~/.config/
+	zip -r sublime-text-3.zip sublime-text-3
+	scp sublime-text-3.zip maep.dk:~/apps/
+	rm ~/.config/sublime-text-3.zip
 	echo "Done!"
 elif [ "$choice" -eq 0 ]; then
 	exit
