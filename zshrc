@@ -50,6 +50,9 @@ JAVA_HOME=/usr/lib/jvm/java-7-oracle
 alias apti='sudo apt-get install'
 alias apts='apt-cache search'
 
+alias keys='echo tmux:\\t\\t\\t\\t\\tVim:\\nCTRL + a + space = Cycle screens\\tCTRL + n = nerdtree\\nCTRL + a + number = Switch to screen\\tCTRL + j = Next tab\\nCTRL + a + c = Create screen\\t\\tCTRL + h = Prev tab\\nCTRL + a + w = List screens\\t\\tCTRL + w = New tab\\nCTRL + a + \& = Kill screen\\t\\tCTRL + q = Close tab\\n'
+
+
 alias free='free -h'
 alias tmux='tmux -2'
 alias mount_www='sshfs a@nuc:/var/www /home/a/www'
@@ -60,11 +63,7 @@ alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 alias myip='curl ifconfig.me/all'
 
 alias weather="curl -4 http://wttr.in/Copenhagen"
-
 alias df='df -h'
-
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
-
-
 
 eval `dircolors ~/dotfiles/dircolors.256dark`
