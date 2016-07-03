@@ -39,8 +39,8 @@ elif [ "$choice" -eq 3 ]; then
 	echo "Done!"
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
-	sudo apt-get -y -q -q install mpv htop zsh feh vlc tmux nmap curl
-	sudo apt-get -y -q -q install chromium-browser filezilla mc vim python-pip python-qt4
+	sudo apt-get -y -q -q install mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
+	sudo apt-get -y -q -q install chromium-browser filezilla mc vim python3-pip
 	sudo apt-get-repository ppa:numix/ppa
 	sudo apt-get update
 	sudo apt-get -y -q -q install numix-icon-theme-circle
