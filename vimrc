@@ -24,7 +24,6 @@ endif
 call plug#begin()
 
 " PLUGINS
-
 Plug 'flazz/vim-colorschemes'       " all the colorschemes
 Plug 'bling/vim-airline'            " better statusbar
 Plug 'vim-airline/vim-airline-themes'
@@ -40,10 +39,9 @@ Plug 'ctrlpvim/ctrlp.vim'           " fuzzy file/buffer search
 Plug 'ervandew/supertab'            " tab auto completion
 Plug 'tpope/vim-sensible'
 Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
 
-
+let g:SuperTabDefaultCompletionType = "context"
 
 set incsearch
 set hlsearch
@@ -57,11 +55,15 @@ filetype plugin indent on
 let g:airline_powerline_fonts=1
 set background=dark
 colorscheme solarized
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 let g:filebeagle_show_hidden = 1
 let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1
 map  <C-j> :tabn<CR>
 map  <C-h> :tabp<CR>
-map  <C-w> :tabnew<CR>
+map  <C-n> :tabnew<CR>
 map  <C-q> :tabclose<CR>
+map  <C-t> :vsplit<CR>
 autocmd FileType python nnoremap <buffer> <C-b> :w \| exec '!clear; python3' shellescape(@%, 1)<cr>
+nnoremap <C-w> <C-w><C-w>
