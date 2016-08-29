@@ -31,7 +31,7 @@ elif [ "$choice" -eq 2 ]; then
 	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
-	sudo apt-get -y -q -q install mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
+	sudo apt-get -y -q -q install exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
 	sudo apt-get -y -q -q install chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev
 	sudo apt-get-repository ppa:numix/ppa
 	sudo apt-get update

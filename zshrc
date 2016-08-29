@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
+# ~/dotfiles/bin/keys
 # Insert sudo in line with ALT+s
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
@@ -50,14 +50,11 @@ JAVA_HOME=/usr/lib/jvm/java-7-oracle
 alias apti='sudo apt-get install'
 alias apts='apt-cache search'
 
-alias keys='echo tmux:\\t\\t\\t\\t\\tVim:\\nCTRL + a + space = Cycle screens\\tCTRL + n = nerdtree\\nCTRL + a + number = Switch to screen\\tCTRL + j = Next tab\\nCTRL + a + c = Create screen\\t\\tCTRL + h = Prev tab\\nCTRL + a + w = List screens\\t\\tCTRL + w = New tab\\nCTRL + a + \& = Kill screen\\t\\tCTRL + q = Close tab\\n'
+# alias keys='echo tmux:\\t\\t\\t\\t\\tVim:\\nCTRL + a + space = Cycle screens\\tCTRL + n = nerdtree\\nCTRL + a + number = Switch to screen\\tCTRL + j = Next tab\\nCTRL + a + c = Create screen\\t\\tCTRL + h = Prev tab\\nCTRL + a + w = List screens\\t\\tCTRL + w = New tab\\nCTRL + a + \& = Kill screen\\t\\tCTRL + q = Close tab\\nCTRL + a + pgup/down = Scroll'
 
 
 alias free='free -h'
 alias tmux='tmux -2'
-alias mount_www='sshfs a@nuc:/var/www /home/a/www'
-alias mount_nuc='sshfs a@nuc:/home/a/files /home/a/nuc'
-alias mount_nuc_outside='sshfs a@maep.dk:/home/a/files /home/a/nuc'
 alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 
 alias myip='curl ifconfig.me/all'

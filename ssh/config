@@ -1,24 +1,3 @@
-Host nas
-User admin
-Hostname 192.168.0.10
-
-Host pi
-User a
-Port 22
-Hostname 192.168.0.13
-
-Host xps
-User a
-Hostname 192.168.0.19
-
-Host soekris
-User a
-Hostname 192.168.0.15
-
 Host nuc
 User a
 Hostname 192.168.0.20
-
-Host home
-User a
-Hostname 87.60.143.95

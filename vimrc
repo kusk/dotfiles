@@ -39,6 +39,7 @@ Plug 'ctrlpvim/ctrlp.vim'           " fuzzy file/buffer search
 Plug 'ervandew/supertab'            " tab auto completion
 Plug 'tpope/vim-sensible'
 Plug 'altercation/vim-colors-solarized'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 let g:SuperTabDefaultCompletionType = "context"
@@ -67,3 +68,5 @@ map  <C-q> :tabclose<CR>
 map  <C-t> :vsplit<CR>
 autocmd FileType python nnoremap <buffer> <C-b> :w \| exec '!clear; python3' shellescape(@%, 1)<cr>
 nnoremap <C-w> <C-w><C-w>
+nmap <F8> :TagbarToggle<CR>
+let g:indentLine_enabled = 1
