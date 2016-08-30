@@ -49,15 +49,11 @@ JAVA_HOME=/usr/lib/jvm/java-7-oracle
 
 alias apti='sudo apt-get install'
 alias apts='apt-cache search'
-
-# alias keys='echo tmux:\\t\\t\\t\\t\\tVim:\\nCTRL + a + space = Cycle screens\\tCTRL + n = nerdtree\\nCTRL + a + number = Switch to screen\\tCTRL + j = Next tab\\nCTRL + a + c = Create screen\\t\\tCTRL + h = Prev tab\\nCTRL + a + w = List screens\\t\\tCTRL + w = New tab\\nCTRL + a + \& = Kill screen\\t\\tCTRL + q = Close tab\\nCTRL + a + pgup/down = Scroll'
-
-
 alias free='free -h'
 alias tmux='tmux -2'
 alias scannet='sudo watch arp-scan --interface=eth1 --localnet'
 
-alias myip='curl ifconfig.me/all'
+alias myip='curl -s httpbin.org/ip'
 
 alias weather="curl -4 http://wttr.in/Copenhagen"
 alias df='df -h'
