@@ -54,12 +54,11 @@ set mouse=a
 set number
 filetype plugin indent on
 let g:airline_powerline_fonts=1
+let g:hybrid_custom_term_colors = 1
 set background=dark
-colorscheme solarized
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+colorscheme hybrid
 let g:filebeagle_show_hidden = 1
-let g:airline_theme='solarized'
+let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 map  <C-j> :tabn<CR>
 map  <C-h> :tabp<CR>
@@ -70,3 +69,8 @@ autocmd FileType python nnoremap <buffer> <C-b> :w \| exec '!clear; python3' she
 nnoremap <C-w> <C-w><C-w>
 nmap <F8> :TagbarToggle<CR>
 let g:indentLine_enabled = 1
+
+" The shift error
+cabbr w1 w
+cabbr W w
+cabbr Q q
