@@ -23,6 +23,7 @@ endif
 
 call plug#begin()
 
+
 " PLUGINS
 Plug 'flazz/vim-colorschemes'       " all the colorschemes
 Plug 'bling/vim-airline'            " better statusbar
