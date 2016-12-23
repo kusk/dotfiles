@@ -2,17 +2,17 @@
 echo "Deploy script"
 echo "1: To deploy Xubuntu/Ubuntu packages"
 echo "2: To deploy oh-my-zsh"
-echo "4: To deploy vim-scripts"
-echo "5: To deploy patched fonts"
-echo "6: To deploy XFCE4 themes"
-echo "7: To deploy SublimeText3 configs"
-echo "8: To upload SublimeText3 configs"
-echo "9: To download SublimeText3"
-echo "0: To exit"
+echo "3: To deploy vim-scripts"
+echo "4: To deploy patched fonts"
+echo "5: To deploy XFCE4 themes"
+echo "6: To deploy SublimeText3 configs"
+echo "7: To upload SublimeText3 configs"
+echo "8: To download SublimeText3"
+echo "9: To exit"
 echo -n "> "
 read choice
 
-if [ "$choice" -eq 4 ]; then
+if [ "$choice" -eq 3 ]; then
 	echo "Deploying vim"
 	echo "Creating dirs and symlinks"
 	ln ~s ~/dotfiles/xsession ~/.xsession
@@ -31,38 +31,44 @@ elif [ "$choice" -eq 2 ]; then
 	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
-	sudo apt-get -y -q -q install exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+	sudo apt-get -y -q -q install rofi arc-theme exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
 	sudo apt-get -y -q -q install chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev
 	sudo apt-get -y -q -q install mopidy ncmpcpp mopidy-somafm
 	sudo apt-get-repository ppa:numix/ppa
 	sudo apt-get update
 	sudo apt-get -y -q -q install numix-icon-theme-circle
-elif [ "$choice" -eq 5 ]; then
+elif [ "$choice" -eq 4 ]; then
 	echo "Deploying patched fonts"
 	cd /tmp
 	git clone https://github.com/powerline/fonts
 	cd /tmp/fonts
 	sh install.sh
 	echo "Use Ubuntu Mono derivative Powerline"
-elif [ "$choice" -eq 6 ]; then
+elif [ "$choice" -eq 5 ]; then
 	echo "Deploying XFCE4 themes/Quicktile"
+	mkdir ~/.ssh
+	ln -s ~/dotfiles/ssh/config ~/.ssh/config
 	ln -s ~/dotfiles/themes ~/.themes
+	cp -r ~/dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+	cp -r ~/dotfiles/xfce4/*.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 	ln -s ~/dotfiles/quicktile.cfg ~/.config/quicktile.cfg
-elif [ "$choice" -eq 7 ]; then
+elif [ "$choice" -eq 6 ]; then
 	echo "Downloading SublimeText3 configs"
 	scp maep.dk:~/apps/sublime-text-3-config.zip ~/.config/
 	cd ~/.config
 	unzip sublime-text-3-config.zip
 	rm ~/.config/sublime-text-3-config.zip
 	echo "Done!"
-elif [ "$choice" -eq 8 ]; then
+elif [ "$choice" -eq 7 ]; then
 	echo "Uploading SublimeText3 configs"
 	cd ~/.config/
 	zip -r sublime-text-3-config.zip sublime-text-3
 	scp sublime-text-3-config.zip maep.dk:~/apps/
 	rm ~/.config/sublime-text-3-config.zip
 	echo "Done!"
-elif [ "$choice" -eq 9 ]; then
+elif [ "$choice" -eq 8 ]; then
 	echo "Downloading SublimeText3"
 	mkdir ~/apps
 	scp maep.dk:~/apps/sublime-text-3.zip ~/apps/
@@ -71,6 +77,6 @@ elif [ "$choice" -eq 9 ]; then
 	rm -rf ~/apps/sublime-text-3.zip
 	cd ..
 	echo "Done!"
-elif [ "$choice" -eq 0 ]; then
+elif [ "$choice" -eq 9 ]; then
 	exit
 fi

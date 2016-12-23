@@ -1,3 +1,3 @@
-Host nuc
+Host vultr
 User a
-Hostname 192.168.0.20
+Hostname maep.dk
