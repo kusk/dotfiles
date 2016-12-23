@@ -19,7 +19,7 @@ if [ "$choice" -eq 3 ]; then
 	ln ~s ~/dotfiles/tmux.conf ~/.tmux.conf
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 	ln -s ~/dotfiles/Xresources ~/.Xresources
-	sudo apt-get install vim-youcompleteme
+	sudo apt-get -y -q -q install vim-youcompleteme
 	vim
 	vam install youcompleteme
 	echo "Curling and gitting scripts"
@@ -31,14 +31,14 @@ elif [ "$choice" -eq 2 ]; then
 	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
-	sudo apt-get update
-	sudo apt-get dist-upgrade
+	sudo apt-get -y -q -q update
+	sudo apt-get -y -q -q dist-upgrade
 	sudo apt-get -y -q -q install rofi arc-theme exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
 	sudo apt-get -y -q -q install chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev
 	sudo apt-get -y -q -q install mopidy ncmpcpp mopidy-somafm
 	sudo apt-get-repository ppa:numix/ppa
 	sudo apt-get update
-	sudo apt-get -y -q -q install numix-icon-theme-circle
+	sudo apt-get -y -q -q install numix-icon-theme
 elif [ "$choice" -eq 4 ]; then
 	echo "Deploying patched fonts"
 	cd /tmp
@@ -49,10 +49,11 @@ elif [ "$choice" -eq 4 ]; then
 elif [ "$choice" -eq 5 ]; then
 	echo "Deploying XFCE4 themes/Quicktile"
 	mkdir ~/.ssh
+	mkdir ~/.config/xfce4/terminal
 	ln -s ~/dotfiles/ssh/config ~/.ssh/config
 	ln -s ~/dotfiles/themes ~/.themes
-	cp -r ~/dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
-	cp -r ~/dotfiles/xfce4/*.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+	cp  ~/dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+	cp  ~/dotfiles/xfce4/*.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 	ln -s ~/dotfiles/quicktile.cfg ~/.config/quicktile.cfg
 elif [ "$choice" -eq 6 ]; then
 	echo "Downloading SublimeText3 configs"
