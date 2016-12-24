@@ -1,6 +1,7 @@
 #!/bin/sh
 echo Deploying dotfiles...
-ssh-keygen
+mkdir ~/.ssh
+ssh-keygen -f /home/a/.ssh/id_rsa -N
 ssh-copy-id a@maep.dk
 echo --------------------------------------
 echo Updating apt-cache
@@ -18,7 +19,6 @@ sh install.sh
 cd ~/
 echo --------------------------------------
 echo Deploying dotfiles
-mkdir ~/.ssh
 mkdir ~/.config/xfce4/terminal
 ln ~s ~/dotfiles/xsession ~/.xsession
 ln ~s ~/dotfiles/tmux.conf ~/.tmux.conf
