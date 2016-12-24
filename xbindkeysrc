@@ -1,0 +1,9 @@
+#rofi
+"rofi -show combi -switchers combi -combi-modi ssh,run"
+    m:0x8 + c:33
+    Alt + p 
+
+#terminal
+"xfce4-terminal"
+    m:0x8 + c:36
+    Alt + Return
