@@ -1,0 +1,5 @@
+redshift &
+synclient MaxTapTime=0 &
+feh --bg-fill ~/.dotfiles/wallpapers/zF1V6EE.jpg &
+xbindkeys &
+xfwm4
