@@ -4,11 +4,11 @@ ssh-keygen
 ssh-copy-id a@maep.dk
 echo --------------------------------------
 echo Updating apt-cache
-sudo add-apt-repository ppa:numix/ppa
-sudo apt-get -y -q -q update
+sudo add-apt-repository -y -y ppa:numix/ppa
+sudo apt-get -y -qq update
 echo Upgrading dist
-sudo apt-get -y -q -q dist-upgrade
-sudo apt-get -y -q -q install rofi arc-theme exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev numix-icon-theme vim-youcompleteme &> /dev/null
+sudo apt-get -y -qq dist-upgrade
+sudo apt-get -y -qq install rofi arc-theme exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev numix-icon-theme vim-youcompleteme &> /dev/null
 echo --------------------------------------
 echo Deploying Powerline fonts
 cd /tmp
