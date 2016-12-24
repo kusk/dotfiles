@@ -45,7 +45,7 @@ vam install youcompleteme  &> /dev/null
 echo --------------------------------------
 echo Deploying SublimeText3
 mkdir ~/apps
-scp maep.dk:~/apps/sublime-text-3.zip ~/apps/  &> /dev/null
+scp maep.dk:~/apps/sublime-text-3.zip ~/apps/
 cd ~/apps
 unzip sublime-text-3.zip  &> /dev/null
 rm -rf ~/apps/sublime-text-3.zip
@@ -53,7 +53,7 @@ cd ~/
 
 echo --------------------------------------
 echo Deploying SublimeText3 configs
-scp maep.dk:~/apps/sublime-text-3-config.zip ~/.config/  &> /dev/null
+scp maep.dk:~/apps/sublime-text-3-config.zip ~/.config/
 cd ~/.config
 unzip sublime-text-3-config.zip  &> /dev/null
 rm ~/.config/sublime-text-3-config.zip
