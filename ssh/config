@@ -1,3 +1,4 @@
 Host vultr
 User a
 Hostname maep.dk
+StrictHostKeyChecking no
