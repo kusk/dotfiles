@@ -1,4 +1,4 @@
-redshift &
-synclient MaxTapTime=0 &
-xbindkeys &
+redshift
+synclient MaxTapTime=0
+xbindkeys
 xfwm4
