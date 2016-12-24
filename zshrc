@@ -59,4 +59,4 @@ alias weather="curl -4 http://wttr.in/Copenhagen"
 alias df='df -h'
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
 
-eval `dircolors ~/dotfiles/dircolors.256dark`
+eval `dircolors ~/.dotfiles/dircolors.256dark`
