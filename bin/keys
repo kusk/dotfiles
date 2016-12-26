@@ -1,5 +1,5 @@
 #!/bin/zsh
-echo "\e[1;37mtmux:\\t\\t\\t\\t\\t\e[1;35mvim:\\t\\t\\t\e[1;34mdwm:\\t\\t\\t\\t\\t\e[1;36mShell:\\t\\t\\t\\t\\t\e[1;32mirssi:"
+echo "\e[1;37mtmux:\\t\\t\\t\\t\\tvim:\\t\\t\\tdwm:\\t\\t\\t\\t\\tShell:\\t\\t\\t\\t\\tirssi:"
 echo "\e[0;37mCTRL + a + space = Cycle screens\\t\e[0;35mCTRL + w = Cycle splits\\t\e[0;34mALT + number = switch to desktop\\t\e[0;36mCTRL + Shift + Fn + PgUp = Scroll up\\t\e[0;32mCTRL + p = Prev screen"
 echo "\e[0;37mCTRL + a + number = Swtch screen\\t\e[0;35mCTRL + j = Next tab\\t\e[0;34mALT + . = Resize left\\t\\t\\t\e[0;36mCTRL + Shift + Fn + PgDw = Scroll down\\t\e[0;32mCTRL + n = Next screen"
 echo "\e[0;37mCTRL + a + c = Create screen\\t\\t\e[0;35mCTRL + n = Prev tab\\t\e[0;34mALT + - = Resize right\\t\\t\\t\e[0;36mALT + s = Insert sudo"
