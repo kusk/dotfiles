@@ -3,7 +3,7 @@ echo "\e[1;37mtmux:\\t\\t\\t\\t\\tvim:\\t\\t\\tdwm:\\t\\t\\t\\t\\tShell:\\t\\t\\
 echo "\e[0;37mAlt + a + space = Cycle screens\\t\e[0;35mCTRL + w = Cycle splits\\t\e[0;34mALT + number = switch to desktop\\t\e[0;36mCTRL + Shift + Fn + PgUp = Scroll up\\t\e[0;32mCTRL + p = Prev screen"
 echo "\e[0;37mAlt + a + number = Swtch screen\\t\e[0;35mCTRL + j = Next tab\\t\e[0;34mALT + . = Resize left\\t\\t\\t\e[0;36mCTRL + Shift + Fn + PgDw = Scroll down\\t\e[0;32mCTRL + n = Next screen"
 echo "\e[0;37mAlt + a + c = Create screen\\t\\t\e[0;35mCTRL + n = Prev tab\\t\e[0;34mALT + - = Resize right\\t\\t\\t\e[0;36mALT + s = Insert sudo"
-echo "\e[0;37mAlt + a + w = List screens\\t\\t\e[0;35mCTRL + w = New tab\\t\e[0;34mALT + d = Layout horizontal\\t\\t\e[0;36mCTRL + r = Search history"
+echo "\e[0;37mAlt + a + w = List screens\\t\\t\e[0;35mCTRL + t = V-split\\t\e[0;34mALT + d = Layout horizontal\\t\\t\e[0;36mCTRL + r = Search history"
 echo "\e[0;37mAlt + a + & = Kill screen\\t\\t\e[0;35mCTRL + q = Close tab\\t\e[0;34mALT + i = Layout vertical\\t\\t\e[0;36mCTRL + l = Clear screen"
 echo "\e[0;37mAlt + a + PgUp/down = Scroll\\t\\t\e[0;35mF8 = Tagbar\\t\\t\e[0;34mALT + tab = Cycle windows\\t\\t\e[0;36mCTRL + w = Deletes last word"
 echo "\\t\\t\\t\\t\\t\e[0;35md = Cut selected"
