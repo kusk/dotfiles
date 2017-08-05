@@ -29,4 +29,4 @@ zstyle ':prezto:load' pmodule \
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
-zstyle ':prezto:module:prompt' theme 'agnoster'
+zstyle ':prezto:module:prompt' theme 'powerline'
