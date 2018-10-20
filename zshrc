@@ -14,9 +14,9 @@ fi
 #
 alias df="df -h"
 alias free="free -h"
-alias myip='curl -s httpbin.org/ip'
-alias lll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
-alias ll='/home/a/.dotfiles/bin/pilsner.pl'
+alias myip='curl ifconfig.co'
+alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
+alias mount_share='/usr/bin/vmhgfs-fuse .host:/share share -o subtype=vmhgfs-fuse,allow_other'
 setxkbmap -option ctrl:nocaps
 eval `dircolors ~/.dotfiles/LS_COLORS`
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:~/bin:~/.dotfiles/bin:~/.local/bin:/usr/local/lib
