@@ -17,8 +17,16 @@ alias free="free -h"
 alias myip='curl ifconfig.co'
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
 alias mount_share='/usr/bin/vmhgfs-fuse .host:/share share -o subtype=vmhgfs-fuse,allow_other'
+alias nmap-search='ls /usr/share/nmap/scripts/ | grep ' # search nmap scripts
+alias ipa='ip -o -c a' # colored and simple ip a
+
+
+
 setxkbmap -option ctrl:nocaps
 eval `dircolors ~/.dotfiles/LS_COLORS`
+
+
+
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:~/bin:~/.dotfiles/bin:~/.local/bin:/usr/local/lib
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
