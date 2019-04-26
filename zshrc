@@ -1,18 +1,13 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
+# Load Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-#
-#
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--height=16 --inline-info"
+
+# Set prompt - Theme Powerlevel9k
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_STATUS_VERBOSE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host user dir vcs status)
@@ -29,7 +24,7 @@ POWERLEVEL9K_TIME_FORMAT='\u231A%D{%H:%M}'
 POWERLEVEL9K_HOST_TEMPLATE="%3m"
 POWERLEVEL9K_HOST_ICON="\u26CA"
 
-
+# Set alias
 alias df="df -h"
 alias ipa='ip -o -c a'
 alias free="free -h"
@@ -39,6 +34,3 @@ alias mount_share='/usr/bin/vmhgfs-fuse .host:/share share -o subtype=vmhgfs-fus
 setxkbmap -option ctrl:nocaps
 eval `dircolors ~/.dotfiles/LS_COLORS`
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:~/bin:~/.dotfiles/bin:~/.local/bin:/usr/local/lib
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--height=16 --inline-info"
