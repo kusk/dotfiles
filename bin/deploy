@@ -14,31 +14,30 @@ read choice
 
 if [ "$choice" -eq 3 ]; then
 	echo "Deploying vim"
+	cd ~/
+	curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
 	echo "Creating dirs and symlinks"
 	ln ~s ~/dotfiles/xsession ~/.xsession
 	ln ~s ~/dotfiles/tmux.conf ~/.tmux.conf
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 	ln -s ~/dotfiles/Xresources ~/.Xresources
-	sudo apt-get -y -q -q install vim-youcompleteme
-	vim
-	vam install youcompleteme
 	echo "Curling and gitting scripts"
 elif [ "$choice" -eq 2 ]; then
-	echo "Deploying zsh"
-	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	echo "Deploying zsh+prezto"
+	zsh
+	git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+	setopt EXTENDED_GLOB
+	for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+	  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+	done
 	chsh -s /usr/bin/zsh
-	ln -s ~/dotfiles/zshrc ~/.zshrc
-	git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
 	sudo apt-get -y -q -q update
 	sudo apt-get -y -q -q dist-upgrade
 	sudo apt-get -y -q -q install rofi arc-theme exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
-	sudo apt-get -y -q -q install chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev
-	sudo apt-get -y -q -q install mopidy ncmpcpp mopidy-somafm
-	sudo apt-get-repository ppa:numix/ppa
-	sudo apt-get update
-	sudo apt-get -y -q -q install numix-icon-theme
+	sudo apt-get -y -q -q install chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev numix-icon-theme-circle
 elif [ "$choice" -eq 4 ]; then
 	echo "Deploying patched fonts"
 	cd /tmp
@@ -54,7 +53,6 @@ elif [ "$choice" -eq 5 ]; then
 	ln -s ~/dotfiles/themes ~/.themes
 	cp  ~/dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
 	cp  ~/dotfiles/xfce4/*.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
-	ln -s ~/dotfiles/quicktile.cfg ~/.config/quicktile.cfg
 elif [ "$choice" -eq 6 ]; then
 	echo "Downloading SublimeText3 configs"
 	scp maep.dk:~/apps/sublime-text-3-config.zip ~/.config/
