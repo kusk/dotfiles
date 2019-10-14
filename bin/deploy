@@ -26,6 +26,7 @@ mkdir ~/.ssh
 ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 ln -s ~/.dotfiles/themes ~/.themes
 cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
 
 echo "[+] Installing SublimeText3"
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key -qq add -
