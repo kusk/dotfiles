@@ -6,7 +6,7 @@ sudo apt-get -qq update >/dev/null
 echo "[+] Upgrading apts"
 sudo apt-get -y -qq upgrade >/dev/null
 echo "[+] Installing apts"
-sudo apt-get  -y -qq -o=Dpkg::Use-Pty=0 install git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla >/dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 echo "[+] Gitting dotfiles"
 git clone http://github.com/kusk/dotfiles ~/.dotfiles >/dev/null
 
@@ -37,5 +37,6 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get -qq update >/dev/null
-sudo apt-get -y -qq -o=Dpkg::Use-Pty=0 install sublime-text 
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq sublime-text  < /dev/null > /dev/null
+
 echo "Done!"
