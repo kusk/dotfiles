@@ -33,8 +33,8 @@ ln -s ~/.dotfiles/themes ~/.themes
 cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
 
 echo "[+] Installing SublimeText3"
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-get install apt-transport-https
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -   < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq apt-transport-https   < /dev/null > /dev/null
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get -qq update >/dev/null
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq sublime-text  < /dev/null > /dev/null
