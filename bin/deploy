@@ -3,7 +3,7 @@ echo "[+] Adding a to sudoers"
 echo "a ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
 
 echo "[+] Installing apts"
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git rofi arc-theme htop tmux feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 echo "[+] Gitting dotfiles"
 git clone --quiet http://github.com/kusk/dotfiles ~/.dotfiles > /dev/null
 
