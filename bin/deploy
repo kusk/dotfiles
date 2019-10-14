@@ -10,7 +10,7 @@ git clone --quiet http://github.com/kusk/dotfiles ~/.dotfiles > /dev/null
 
 echo "[+] Creating dirs and symlinks"
 echo "[+] Tmux setup"
-ln ~s ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
 
 
