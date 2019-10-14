@@ -2,7 +2,7 @@
 echo "Added a to sudoers"
 echo "a ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
 echo "Deploying apts"
-sudo apt  -y -q -q install git
+sudo apt-get  -y -q -q install git
 git clone http://github.com/kusk/dotfiles ~/.dotfiles
 echo "Deploy script"
 echo "1: To deploy Xubuntu/Ubuntu packages"
