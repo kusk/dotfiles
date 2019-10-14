@@ -8,19 +8,18 @@ sudo apt-get -y -qq upgrade >/dev/null
 echo "[+] Installing apts"
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 echo "[+] Gitting dotfiles"
-git clone http://github.com/kusk/dotfiles ~/.dotfiles >/dev/null
+git clone --quiet http://github.com/kusk/dotfiles ~/.dotfiles > /dev/null
 
 
-echo "Creating dirs and symlinks"
-ln ~s ~/.dotfiles/xsession ~/.xsession
+echo "[+] Creating dirs and symlinks"
 echo "[+] Tmux setup"
 ln ~s ~/.dotfiles/tmux.conf ~/.tmux.conf
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
+git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
 
 
 echo "[+] Deploying patched fonts"
 cd /tmp
-git clone https://github.com/powerline/fonts >/dev/null
+git clone --quiet https://github.com/powerline/fonts >/dev/null
 cd /tmp/fonts
 sh install.sh  >/dev/null
 
