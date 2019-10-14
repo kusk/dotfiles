@@ -1,10 +1,7 @@
 #!/bin/sh
 echo "[+] Adding a to sudoers"
 echo "a ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
-echo "[+] Updating apts"
-sudo apt-get -qq update >/dev/null
-echo "[+] Upgrading apts"
-sudo apt-get -y -qq upgrade >/dev/null
+
 echo "[+] Installing apts"
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 echo "[+] Gitting dotfiles"
