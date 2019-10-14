@@ -1,73 +1,42 @@
 #!/bin/sh
 echo "[+] Adding a to sudoers"
 echo "a ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
+echo "[+] Updating apts"
+sudo apt-get -qq update >/dev/null
+echo "[+] Upgrading apts"
+sudo apt-get -y -qq upgrade >/dev/null
 echo "[+] Installing apts"
 sudo apt-get  -y -qq -o=Dpkg::Use-Pty=0 install git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla >/dev/null
 echo "[+] Gitting dotfiles"
-git clone http://github.com/kusk/dotfiles ~/.dotfiles
-echo "Deploy script"
+git clone http://github.com/kusk/dotfiles ~/.dotfiles >/dev/null
 
-echo "2: To deploy prezto"
-echo "3: To deploy vim-scripts"
-echo "4: To deploy patched fonts"
-echo "5: To deploy XFCE4 themes"
-echo "6: To deploy SublimeText3 configs"
-echo "7: To upload SublimeText3 configs"
-echo "8: To download SublimeText3"
-echo "9: To exit"
-echo -n "> "
-read choice
 
-if [ "$choice" -eq 3 ]; then
-	cd ~/
-	echo "Creating dirs and symlinks"
-	ln ~s ~/dotfiles/xsession ~/.xsession
-	ln ~s ~/dotfiles/tmux.conf ~/.tmux.conf
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	ln -s ~/dotfiles/vimrc ~/.vimrc
-	ln -s ~/dotfiles/Xresources ~/.Xresources
-	echo "Curling and gitting scripts"
-elif [ "$choice" -eq 2 ]; then
-	echo "Deploying zsh+prezto"
-	zsh
-	chsh -s /usr/bin/zsh
-elif [ "$choice" -eq 4 ]; then
-	echo "Deploying patched fonts"
-	cd /tmp
-	git clone https://github.com/powerline/fonts
-	cd /tmp/fonts
-	sh install.sh
-	echo "Use Ubuntu Mono derivative Powerline"
-elif [ "$choice" -eq 5 ]; then
-	echo "Deploying XFCE4 themes/Quicktile"
-	mkdir ~/.ssh
-	mkdir ~/.config/xfce4/terminal
-	ln -s ~/dotfiles/ssh/config ~/.ssh/config
-	ln -s ~/dotfiles/themes ~/.themes
-	cp  ~/dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
-	cp  ~/dotfiles/xfce4/*.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
-elif [ "$choice" -eq 6 ]; then
-	echo "Downloading SublimeText3 configs"
-	scp maep.dk:~/apps/sublime-text-3-config.zip ~/.config/
-	cd ~/.config
-	unzip sublime-text-3-config.zip
-	rm ~/.config/sublime-text-3-config.zip
-	echo "Done!"
-elif [ "$choice" -eq 7 ]; then
-	echo "Uploading SublimeText3 configs"
-	cd ~/.config/
-	zip -r sublime-text-3-config.zip sublime-text-3
-	scp sublime-text-3-config.zip maep.dk:~/apps/
-	rm ~/.config/sublime-text-3-config.zip
-	echo "Done!"
-elif [ "$choice" -eq 8 ]; then
-	echo "Downloading SublimeText3"
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-	sudo apt-get install apt-transport-https
-	echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-	sudo apt-get update
-	sudo apt-get install sublime-text
-	echo "Done!"
-elif [ "$choice" -eq 9 ]; then
-	exit
-fi
+echo "Creating dirs and symlinks"
+ln ~s ~/.dotfiles/xsession ~/.xsession
+echo "[+] Tmux setup"
+ln ~s ~/.dotfiles/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+
+echo "[+] Deploying patched fonts"
+cd /tmp
+git clone https://github.com/powerline/fonts
+cd /tmp/fonts
+sh install.sh
+
+
+echo "Deploying XFCE4 themes/Quicktile"
+mkdir ~/.ssh
+mkdir ~/.config/xfce4/terminal
+ln -s ~/dotfiles/ssh/config ~/.ssh/config
+ln -s ~/dotfiles/themes ~/.themes
+cp  ~/dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+cp  ~/dotfiles/xfce4/*.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+
+echo "[+] Installing SublimeText3"
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
+sudo apt-get install sublime-text
+echo "Done!"
