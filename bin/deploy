@@ -29,8 +29,6 @@ if [ "$choice" -eq 3 ]; then
 elif [ "$choice" -eq 2 ]; then
 	echo "Deploying zsh+prezto"
 	zsh
-	git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-	setopt EXTENDED_GLOB
 	chsh -s /usr/bin/zsh
 elif [ "$choice" -eq 1 ]; then
 	echo "Deploying Ubuntu packs"
