@@ -36,4 +36,4 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq sublime-text  < /dev/nul
 
 echo "Done!"
 echo "[+] Install spacevim"
-curl -sLf https://spacevim.org/install.sh | bash
+echo "url -sLf https://spacevim.org/install.sh | bash"
