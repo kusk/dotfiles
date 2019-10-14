@@ -7,7 +7,7 @@ echo "[+] Upgrading apts"
 sudo apt -y -qq -o=Dpkg::Use-Pty=0 upgrade 1&2>/dev/null
 echo "[+] Installing apts"
 sudo apt-get  -y -qq -o=Dpkg::Use-Pty=0 install git rofi arc-theme htop feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla 1&2>/dev/null
-echo "[+] Gitting dotfiles
+echo "[+] Gitting dotfiles"
 git clone http://github.com/kusk/dotfiles ~/.dotfiles
 echo "Deploy script"
 
