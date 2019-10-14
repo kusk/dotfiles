@@ -8,7 +8,7 @@ sudo apt-get  -y -qq -o=Dpkg::Use-Pty=0 install git rofi arc-theme htop feh vlc 
 echo "[+] gitting dotfiles
 git clone http://github.com/kusk/dotfiles ~/.dotfiles
 echo "Deploy script"
-echo "1: To deploy Xubuntu/Ubuntu packages"
+
 echo "2: To deploy prezto"
 echo "3: To deploy vim-scripts"
 echo "4: To deploy patched fonts"
@@ -33,12 +33,6 @@ elif [ "$choice" -eq 2 ]; then
 	echo "Deploying zsh+prezto"
 	zsh
 	chsh -s /usr/bin/zsh
-elif [ "$choice" -eq 1 ]; then
-	echo "Deploying Ubuntu packs"
-	sudo apt-get -y -q -q update
-	sudo apt-get -y -q -q dist-upgrade
-	sudo apt-get -y -q -q install rofi arc-theme exuberant-ctags mpv htop zsh feh vlc tmux nmap curl build-essential libx11-dev libxinerama-dev sharutils
-	sudo apt-get -y -q -q install chromium-browser cmake filezilla mc vim python3-pip redshift xcompmgr masscan libxft-dev numix-icon-theme-circle
 elif [ "$choice" -eq 4 ]; then
 	echo "Deploying patched fonts"
 	cd /tmp
