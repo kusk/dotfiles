@@ -22,7 +22,7 @@ cd ..
 rm -rf ~/.powerline_fonts
 
 echo "[+] Installing prezto"
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" > /dev/null
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
 ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
