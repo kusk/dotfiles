@@ -3,7 +3,7 @@ echo -e "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Adding a to sudoers"
 echo "a ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
 
 echo -e "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git apt-transport-https fonts-font-awesome rofi open-vm-tools open-vm-tools-desktop arc-theme htop tmux feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git apt-transport-https fonts-fork-awesome fonts-font-awesome rofi open-vm-tools open-vm-tools-desktop arc-theme htop tmux feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 echo -e "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Gitting dotfiles"
 git clone --quiet http://github.com/kusk/dotfiles ~/.dotfiles > /dev/null
 
