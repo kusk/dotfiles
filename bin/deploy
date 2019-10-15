@@ -48,6 +48,15 @@ xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<A
 xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>3' -s "workspace_3_key"
 xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>4' -s "workspace_4_key"
 
+xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Left' -r -R
+xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Right' -r -R
+xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Up' -r -R
+xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Down' -r -R
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Right' -s "tile_right_key"
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Left' -s "tile_left_key"
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Up' -s "tile_up_key"
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Down' -s "tile_down_key"
+
 
 echo "[+] Installing fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
