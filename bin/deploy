@@ -66,6 +66,9 @@ xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<A
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>q' -r -R
 xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>q' -s "close_window_key"
 
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/commands/custom/<Alt>Return' -s "xfce4-terminal"
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/commands/custom/<Alt>p' -s "rofi -combi-modi ssh,drun -show combi -modi combi"
+
 echo -e "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing fzf"
 git clone --quiet --depth 1 https://github.com/junegunn/fzf.git ~/.fzf > /dev/null
 ln -s ~/.dotfiles/fzf.zsh ~/.fzf.zsh
