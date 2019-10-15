@@ -1,27 +1,27 @@
 #!/bin/sh
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Adding a to sudoers"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Adding a to sudoers"
 echo "a ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Installing apts"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Installing apts"
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git apt-transport-https rofi open-vm-tools open-vm-tools-desktop arc-theme htop tmux feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Gitting dotfiles"
 git clone --quiet http://github.com/kusk/dotfiles ~/.dotfiles > /dev/null
 
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Creating dirs and symlinks"
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Tmux setup"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Creating dirs and symlinks"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Tmux setup"
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
 
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Deploying patched fonts"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Deploying patched fonts"
 git clone --quiet https://github.com/powerline/fonts ~/.powerline_fonts >/dev/null
 cd ~/.powerline_fonts
 sh install.sh  >/dev/null
 cd ..
 rm -rf ~/.powerline_fonts
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Installing prezto"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Installing prezto"
 git clone --quiet --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" > /dev/null
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
@@ -32,7 +32,7 @@ ln -s ~/.dotfiles/zshrc ~/.zshrc
 chsh -s /usr/bin/zsh
 
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
 mkdir ~/.ssh
 ln -s ~/.dotfiles/themes ~/.themes
 cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
@@ -40,7 +40,7 @@ ln -s ~/.dotfiles/zshrc ~/.zshrc
 xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
 xfconf-query -c xfwm4 -p /general/workspace_count -s 4
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Reset shortcuts"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Reset shortcuts"
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>1' -r -R
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>2' -r -R
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>3' -r -R
@@ -65,11 +65,11 @@ xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<A
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>q' -r -R
 xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>q' -s "close_window_key"
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Installing fzf"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Installing fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ln -s ~/.dotfiles/fzf.zsh ~/.fzf.zsh
 
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Installing SublimeText3"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Installing SublimeText3"
 wget -q https://download.sublimetext.com/sublimehq-pub.gpg
 sudo apt-key add sublimehq-pub.gpg >/dev/null
 rm -rf sublimehq-pub.gpg
@@ -78,5 +78,5 @@ sudo apt-get -qq update >/dev/null
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq sublime-text  < /dev/null > /dev/null
 
 echo "Done!"
-echo -e "\e[1;37m[\e[0;33mx\e[1;37m] \e[0;0m Install spacevim"
+echo -e "\e[1;37m[\e[1;33mx\e[1;37m] \e[0;0m Install spacevim"
 echo "url -sLf https://spacevim.org/install.sh | bash"
