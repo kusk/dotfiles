@@ -38,6 +38,8 @@ ln -s ~/.dotfiles/themes ~/.themes
 cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
+xfconf-query -c xfwm4 -p /general/workspace_count -s 4
+
 echo "[+] Reset shortcuts"
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>1' -r -R
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>2' -r -R
