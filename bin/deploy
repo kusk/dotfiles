@@ -60,6 +60,8 @@ xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<A
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Shift_R' -r -R
 xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Shift_R' -s "maximize_window_key"
 
+xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>q' -r -R
+xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>q' -s "close_window_key"
 
 echo "[+] Installing fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
