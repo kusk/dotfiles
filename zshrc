@@ -19,9 +19,6 @@ alias myip='curl ifconfig.co'
 alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
 setxkbmap -option ctrl:nocaps
 eval `dircolors ~/.dotfiles/LS_COLORS`
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
@@ -31,3 +28,5 @@ prompt powerlevel10k
 
 
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:~/bin:~/.dotfiles/bin:~/.local/bin:/usr/local/lib
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
