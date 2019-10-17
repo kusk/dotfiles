@@ -22,6 +22,10 @@ sh install.sh  >/dev/null
 cd ..
 rm -rf ~/.powerline_fonts
 
+echo -e "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying powerlevel10k valid fonts"
+cp ~/.dotfiles/fonts/* ~/.local/share/fonts/
+fc-cache -f -v
+
 echo -e "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing prezto"
 git clone --quiet --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" > /dev/null
 ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
