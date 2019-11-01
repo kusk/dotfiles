@@ -1,0 +1,12 @@
+#!/bin/bash
+
+WID=$(wmctrl -lp | grep 'Terminal' | awk '{print $1}')
+FF=$(wmctrl -lp | grep 'Firefox' | cut "-d " -f1)
+BURP=$(wmctrl -lp | grep 'Burp' | cut "-d " -f1)
+WS=$(wmctrl -lp | grep 'ftp' | cut "-d " -f1)
+
+
+wmctrl -i -r $FF -e 0,20,20,1870,990
+wmctrl -i -r $WS -e 0,20,20,1870,990
+wmctrl -i -r $BURP -e 0,20,20,1870,990
+wmctrl -i -r $WID -e 0,20,20,1870,990
