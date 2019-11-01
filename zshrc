@@ -11,6 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+alias resize="xdotool windowsize $(xdotool getactivewindow) $(xdpyinfo |  awk '/dimensions/{print $2}' |  awk -F'x' '{ print $1-90" "$2-100}')"
+
 alias mount_share='/usr/bin/vmhgfs-fuse .host:/share share -o subtype=vmhgfs-fuse,allow_other'
 alias df="df -h"
 alias ipa='ip -o -c a'
