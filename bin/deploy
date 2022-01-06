@@ -21,8 +21,8 @@ cd ..
 rm -rf ~/.powerline_fonts
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying powerlevel10k valid fonts"
-cp ~/.dotfiles/fonts/* ~/.local/share/fonts/
-fc-cache -f -v
+cp ~/.dotfiles/fonts/* ~/.local/share/fonts/   > /dev/null 2>&1
+fc-cache -f -v   > /dev/null 2>&1
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing prezto"
 git clone --quiet --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" > /dev/null
@@ -85,7 +85,3 @@ rm -rf sublimehq-pub.gpg
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list  > /dev/null
 sudo apt-get -qq update >/dev/null
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq sublime-text  < /dev/null > /dev/null
-
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Install spacevim"
-echo "url -sLf https://spacevim.org/install.sh | bash"
