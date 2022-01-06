@@ -34,6 +34,7 @@ ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
 rm -rf ~/.zshrc
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh 
+ln -s ~/.dotfiles/vimrc ~/.vimrc
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
 mkdir ~/.ssh
