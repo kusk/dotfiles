@@ -4,7 +4,7 @@ echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Adding $USER to sudoers"
 
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
-sudo DEBIAN_FRONTEND=noninteractive apt update  -qq < /dev/null > /dev/null
+sudo DEBIAN_FRONTEND=noninteractive apt-get update  -qq < /dev/null > /dev/null
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -qq git xfce4-terminal apt-transport-https fonts-fork-awesome fonts-font-awesome rofi open-vm-tools open-vm-tools-desktop arc-theme htop tmux feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Creating dirs and symlinks"
