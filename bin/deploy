@@ -44,7 +44,6 @@ cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
 xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
 xfconf-query -c xfwm4 -p /general/workspace_count -s 4
 xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Darker"
-xfconf-query -c xfce4-panel -p /panels/panel-0/position -s "p=8;x=0;y=0"
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Reset shortcuts"
 xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>1' -r -R
