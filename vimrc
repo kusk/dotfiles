@@ -57,7 +57,6 @@ filetype plugin indent on
 let g:airline_powerline_fonts=1
 let g:hybrid_custom_term_colors = 1
 set background=dark
-colorscheme hybrid
 let g:filebeagle_show_hidden = 1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
