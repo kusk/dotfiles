@@ -41,6 +41,7 @@ Plug 'ervandew/supertab'            " tab auto completion
 Plug 'tpope/vim-sensible'
 Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
+Plug 'audibleblink/hackthebox.vim'
 call plug#end()
 
 let g:SuperTabDefaultCompletionType = "context"
