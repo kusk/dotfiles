@@ -11,7 +11,8 @@ echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Creating dirs and symlinks"
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Tmux setup"
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
-
+mkdir ~/.tmux-powerline
+git clone https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline
 
 echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying patched fonts"
 git clone --quiet https://github.com/powerline/fonts ~/.powerline_fonts >/dev/null
