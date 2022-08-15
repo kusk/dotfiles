@@ -32,7 +32,6 @@ Plug 'mhinz/vim-Startify'           " nice startup screen
 Plug 'Yggdroot/indentLine'          " shows indents made of spaces
 Plug 'junegunn/vim-easy-align'      " text alignment plugin
 Plug 'chrisbra/unicode.vim'
-Plug 'edkolev/tmuxline.vim'
 Plug 'jeetsukumaran/vim-filebeagle' " vinegar inspired file manager
 Plug 'scrooloose/Syntastic'         " real time error checking
 Plug 'terryma/vim-multiple-cursors' " Sublime multi-cursors for Vim
