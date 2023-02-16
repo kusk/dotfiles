@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+import requests
+from termcolor import colored
+requests.packages.urllib3.disable_warnings() 
+#proxies = { 'http': 'http://127.0.0.1:8080','https':'http://127.0.0.1:8080'}
+print("[" + colored("+", 'green') +"] Connecting to AsRock IPMI")
+try:
+    login_url = "https://192.168.1.7/api/session" 
+    login_data = {"username":"admin","password":"","certlogin":"0"}
+    login = requests.post(login_url, data=login_data, verify=False)
+    print("[" + colored("+", 'green') +"] Retrieving authentication cookies")
+    login_cookies = login.cookies
+    csrftoken = login.json().get("CSRFToken")
+    print("[" + colored("+", 'green') +"] Sending power-on command")
+    headers = {"X-Csrftoken":csrftoken}
+    on_url = "https://192.168.1.7/api/actions/power"
+    turn_on = requests.post(on_url, json={"power_command":"1"}, cookies=login_cookies, verify=False, headers=headers)
+except:
+    print("[" + colored("X", 'red') +"] Cant connect to AsRock IPMI interface")
