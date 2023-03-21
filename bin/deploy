@@ -1,99 +1,155 @@
-#!/bin/sh
-echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Adding $USER to sudoers"
+#!/bin/bash
 
+help()
+{
+   # Display Help
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m
+   echo "-h - This Menu"
+   echo "-b - Installs the basic tools"
+   echo "-k - Installs for kali"
+   echo "-u - Installs for Ubuntu"
+   echo "-c - Installs for Linux without UI"
+}
 
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
-sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
-sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install xclip git awesome fzf xfce4-terminal apt-transport-https fonts-fork-awesome fonts-font-awesome rofi open-vm-tools open-vm-tools-desktop arc-theme htop tmux feh vlc zsh nmap curl numix-icon-theme-circle redshift vim python3-pip filezilla < /dev/null > /dev/null
+kali()
+{
+    minimal
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing for Kali"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install xfce4-terminal  fonts-fork-awesome fonts-font-awesome rofi  arc-theme feh vlc numix-icon-theme-circle redshift  < /dev/null > /dev/null
 
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m AwesomeWM setup"
-mkdir .config/awesome 
-cd ~/.config/awesome
-git clone --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git >/dev/null
-mv -bv awesome-copycats/{*,.[^.]*} ~/.config/awesome; rm -rf awesome-copycats >/dev/null
-ln -s ~/.dotfiles/rc.lua ~/.config/awesome/rc.lua
-cd
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Creating dirs and symlinks"
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Tmux setup"
-ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
-mkdir ~/.tmux-powerline
-git clone https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying patched fonts"
-git clone --quiet https://github.com/powerline/fonts ~/.powerline_fonts >/dev/null
-cd ~/.powerline_fonts
-sh install.sh  > /dev/null 2>&1
-cd ..
-rm -rf ~/.powerline_fonts
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying powerlevel10k valid fonts"
-cp ~/.dotfiles/fonts/* ~/.local/share/fonts/   > /dev/null 2>&1
-fc-cache -f -v   > /dev/null 2>&1
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing prezto"
-git clone --quiet --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" > /dev/null
-ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
-ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
-ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
-ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
-rm -rf ~/.zshrc
-ln -s ~/.dotfiles/zshrc ~/.zshrc
-ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh 
-ln -s ~/.dotfiles/vimrc ~/.vimrc
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
-mkdir ~/.ssh
-ln -s ~/.dotfiles/themes ~/.themes
-mkdir -p ~/.config/xfce4/terminal/
-cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
-git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal
-cd ~/.nord-xfce-terminal
-./install.sh
-cd
-
-xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
-xfconf-query -c xfwm4 -p /general/workspace_count -s 4
-xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Darker"
-
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Reset shortcuts"
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>1' -r -R
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>2' -r -R
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>3' -r -R
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>4' -r -R
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>1' -s "workspace_1_key"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>2' -s "workspace_2_key"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>3' -s "workspace_3_key"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>4' -s "workspace_4_key"
-
-xfconf-query -c keyboard-layout -pn /Default/XkbDisable -t 'bool' -s false
-xfconf-query -c keyboard-layout -pn /Default/XkbLayout -t 'string' -s "dk"
-xfconf-query -c keyboard-layout -pn /Default/XkbVariant -t 'string' -s ",,"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
+    mkdir ~/.ssh
+    ln -s ~/.dotfiles/themes ~/.themes
+    mkdir -p ~/.config/xfce4/terminal/
+    cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+    git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal
+    cd ~/.nord-xfce-terminal
+    ./install.sh
+    cd
 
 
 
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Left' -r -R
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Right' -r -R
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Up' -r -R
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Down' -r -R
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Right' -s "tile_right_key"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Left' -s "tile_left_key"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Up' -s "tile_up_key"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Down' -s "tile_down_key"
 
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Shift_R' -r -R
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>Shift_R' -s "maximize_window_key"
 
-xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>q' -r -R
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/xfwm4/custom/<Alt>q' -s "close_window_key"
 
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/commands/custom/<Alt>Return' -s "xfce4-terminal"
-xfconf-query --create -c xfce4-keyboard-shortcuts -t string -p '/commands/custom/<Alt>p' -s "rofi -combi-modi ssh,drun -show combi -modi combi"
+}
 
-echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing fzf"
-git clone --quiet --depth 1 https://github.com/junegunn/fzf.git ~/.fzf > /dev/null
-ln -s ~/.dotfiles/fzf.zsh ~/.fzf.zsh
-sudo usermod -s /usr/bin/zsh $USER   > /dev/null 2>&1
+ubuntu()
+{
+    echo "Install for Ubuntu"
+    minimal
+}
+
+cli()
+{
+    echo "Install for cli"
+    minimal
+}
+
+minimal()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m  Running minimal install"
+    sudo_install
+    
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing basicapts"
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git apt-transport-https open-vm-tools open-vm-tools-desktop htop tmux zsh nmap curl vim python3-pip < /dev/null > /dev/null
+
+    prezto_install
+    fzf_install
+    vim_install
+    tmux_install
+}
+
+
+sudo_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Adding $USER to sudoers"
+    echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
+}
+
+fzf_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing fzf"
+    git clone --quiet --depth 1 https://github.com/junegunn/fzf.git ~/.fzf > /dev/null
+    ln -s ~/.dotfiles/fzf.zsh ~/.fzf.zsh
+    sudo usermod -s /usr/bin/zsh $USER   > /dev/null 2>&1
+}
+
+prezto_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing prezto"
+    git clone --quiet --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" > /dev/null
+    ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+    ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+    ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+    ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+    ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+    rm -rf ~/.zshrc
+    ln -s ~/.dotfiles/zshrc ~/.zshrc
+    ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh 
+}
+
+vim_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m vim"
+    ln -s ~/.dotfiles/vimrc ~/.vimrc
+}
+
+tmux_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Tmux setup"
+    ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+    git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
+    mkdir ~/.tmux-powerline
+    git clone https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline
+}
+
+fonts_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying patched fonts"
+    git clone --quiet https://github.com/powerline/fonts ~/.powerline_fonts >/dev/null
+    cd ~/.powerline_fonts
+    sh install.sh  > /dev/null 2>&1
+    cd ..
+    rm -rf ~/.powerline_fonts
+}
+
+
+xfce4_terminal_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying xfce4-terminal"
+    xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
+    xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Darker"
+}
+
+awesomewm_install()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m AwesomeWM setup"
+    mkdir .config/awesome 
+    cd ~/.config/awesome
+    git clone --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git >/dev/null
+    mv -bv awesome-copycats/{*,.[^.]*} ~/.config/awesome; rm -rf awesome-copycats >/dev/null
+    ln -s ~/.dotfiles/rc.lua ~/.config/awesome/rc.lua
+    cd
+}
+
+while getopts ":hkucm" option; do
+   case $option in
+      h) # display Help
+         help
+         exit;;
+      k)
+        kali
+        exit;;
+      u)
+        ubuntu
+        exit;;
+      c)
+        
+   esac
+done
+
+echo "Hello world!"
