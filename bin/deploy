@@ -3,48 +3,29 @@
 help()
 {
    # Display Help
-   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m
-   echo "-h - This Menu"
-   echo "-b - Installs the basic tools"
-   echo "-k - Installs for kali"
-   echo "-u - Installs for Ubuntu"
-   echo "-c - Installs for Linux without UI"
+   echo "-h\tThis Menu"
+   echo "-k\tInstalls for kali"
+   echo "-u\tInstalls for Ubuntu"
+   echo "-m\tInstalls for Linux without UI"
+}
+
+ui()
+{
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing for Kali"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install awesome xfce4-terminal  fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme feh vlc numix-icon-theme-circle redshift  < /dev/null > /dev/null
 }
 
 kali()
 {
     minimal
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing for Kali"
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install xfce4-terminal  fonts-fork-awesome fonts-font-awesome rofi  arc-theme feh vlc numix-icon-theme-circle redshift  < /dev/null > /dev/null
-
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
-    mkdir ~/.ssh
-    ln -s ~/.dotfiles/themes ~/.themes
-    mkdir -p ~/.config/xfce4/terminal/
-    cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
-    git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal
-    cd ~/.nord-xfce-terminal
-    ./install.sh
-    cd
-
-
-
-
-
-
+    ui
 }
 
 ubuntu()
 {
     echo "Install for Ubuntu"
-    minimal
-}
-
-cli()
-{
-    echo "Install for cli"
     minimal
 }
 
@@ -61,6 +42,8 @@ minimal()
     fzf_install
     vim_install
     tmux_install
+    rm -rf ~/Billeder ~/Dokumenter ~/Musik ~/Offentligt ~/Skabaloner ~/Videoklip
+
 }
 
 
@@ -136,6 +119,20 @@ awesomewm_install()
     cd
 }
 
+diverse_install()
+{
+    
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Deploying XFCE4 themes/Quicktile"
+    mkdir ~/.ssh
+    ln -s ~/.dotfiles/themes ~/.themes
+    mkdir -p ~/.config/xfce4/terminal/
+    cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+    git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal
+    cd ~/.nord-xfce-terminal
+    ./install.sh
+    cd
+}
+
 while getopts ":hkucm" option; do
    case $option in
       h) # display Help
@@ -147,7 +144,9 @@ while getopts ":hkucm" option; do
       u)
         ubuntu
         exit;;
-      c)
+      m)
+        minimal
+        exit;;
         
    esac
 done
