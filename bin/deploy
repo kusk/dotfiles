@@ -39,9 +39,10 @@ kali()
     git clone https://github.com/dirkjanm/krbrelayx  > /dev/null 2>&1
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Aquatone"
     wget https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip   > /dev/null 2>&1
-    unzip aquatone_linux_amd64_1.7.0.zip
+    unzip aquatone_linux_amd64_1.7.0.zip  > /dev/null 2>&1
     sudo mv aquatone /usr/sbin/
     rm -rf README.md LICENSE.txt aquatone_linux_amd64_1.7.0.zip
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Done!"
 }
 
 ubuntu()
