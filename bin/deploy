@@ -134,9 +134,9 @@ awesomewm_install()
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing AwesomeWM"
     mkdir -p ~/.config/awesome
     cd
-    git clone --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git 
-    ls
-    mv -bv awesome-copycats/{*,.[^.]*} ~/.config/awesome; rm -rf awesome-copycats 
+    git clone  --quiet --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git   >/dev/null
+    mv awesome-copycats/* ~/.config/awesome/   >/dev/null
+    rm -rf awesome-copycats 
     ln -s ~/.dotfiles/rc.lua ~/.config/awesome/rc.lua
     cd
 }
