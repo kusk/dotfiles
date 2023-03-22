@@ -11,8 +11,7 @@ help()
 
 ui()
 {
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing for Kali"
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing apts"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing UI apts"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install awesome xfce4-terminal  fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme feh vlc numix-icon-theme-circle redshift  < /dev/null > /dev/null
 
@@ -148,9 +147,9 @@ diverse_install()
     ln -s ~/.dotfiles/themes ~/.themes
     mkdir -p ~/.config/xfce4/terminal/
     cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
-    git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal
+    git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal  > /dev/null 2>&1
     cd ~/.nord-xfce-terminal
-    ./install.sh
+    ./install.sh  > /dev/null 2>&1
     cd
 }
 
