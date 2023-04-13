@@ -39,15 +39,15 @@ PINK="\033[1;35m"
 CYAN="\033[1;36m"
 NOCOLOR="\033[0m"
 
-echo ${RED}TMUX${NOCOLOR}"\t\t\t""\t"${GREEN}XFCE${NOCOLOR}
-echo ${PINK}C-a ${CYAN}.${NOCOLOR}"\t\t"Rename session"\t"${PINK}Alt ${CYAN}Print${NOCOLOR}"\t"ScrShot Window
-echo ${PINK}C-a ${CYAN},${NOCOLOR}"\t\t"Rename window"\t"${PINK}Alt ${CYAN}p${NOCOLOR}"\t\t"Rofi
-echo ${PINK}C-a ${CYAN}Space${NOCOLOR}"\t"Next window"\t"${PINK}Alt ${CYAN}Enter${NOCOLOR}"\t"Terminal
-echo ${PINK}C-a ${CYAN}Tab${NOCOLOR}"\t""\t"Window list"\t"${PINK}Alt ${CYAN}Shift${NOCOLOR}"\t"Max/min Window
-echo ${PINK}C-a ${CYAN}p${NOCOLOR}"\t""\t"Save to log"\t"
-echo ${PINK}C-a ${CYAN}x${NOCOLOR}"\t""\t"Kill pane"\t"
-echo ${PINK}C-a ${CYAN}c${NOCOLOR}"\t""\t"Create window"\t"
-echo ${PINK}C-a ${CYAN}/${NOCOLOR}"\t""\t"Search pane"\t"
-echo ${PINK}C-a ${CYAN}Enter${NOCOLOR}"\t"Detach pane"\t"
-echo ${PINK}C-a ${CYAN}Arrows${NOCOLOR}"\t"Create pane"\t"
-echo ${PINK}M-Select ${CYAN}Enter${NOCOLOR}"\t"Copy text
+#echo ${RED}TMUX${NOCOLOR}"\t\t\t""\t"${GREEN}XFCE${NOCOLOR}
+#echo ${PINK}C-a ${CYAN}.${NOCOLOR}"\t\t"Rename session"\t"${PINK}Alt ${CYAN}Print${NOCOLOR}"\t"ScrShot Window
+#echo ${PINK}C-a ${CYAN},${NOCOLOR}"\t\t"Rename window"\t"${PINK}Alt ${CYAN}p${NOCOLOR}"\t\t"Rofi
+#echo ${PINK}C-a ${CYAN}Space${NOCOLOR}"\t"Next window"\t"${PINK}Alt ${CYAN}Enter${NOCOLOR}"\t"Terminal
+#echo ${PINK}C-a ${CYAN}Tab${NOCOLOR}"\t""\t"Window list"\t"${PINK}Alt ${CYAN}Shift${NOCOLOR}"\t"Max/min Window
+#echo ${PINK}C-a ${CYAN}p${NOCOLOR}"\t""\t"Save to log"\t"
+#echo ${PINK}C-a ${CYAN}x${NOCOLOR}"\t""\t"Kill pane"\t"
+#echo ${PINK}C-a ${CYAN}c${NOCOLOR}"\t""\t"Create window"\t"
+#echo ${PINK}C-a ${CYAN}/${NOCOLOR}"\t""\t"Search pane"\t"
+#echo ${PINK}C-a ${CYAN}Enter${NOCOLOR}"\t"Detach pane"\t"
+#echo ${PINK}C-a ${CYAN}Arrows${NOCOLOR}"\t"Create pane"\t"
+#echo ${PINK}M-Select ${CYAN}Enter${NOCOLOR}"\t"Copy text
