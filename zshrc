@@ -19,7 +19,7 @@ alias df="df -h"
 alias ipa='ip -o -c a'
 alias free="free -h"
 alias myip='curl ifconfig.co'
-alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
+alias ll='lsd -hl --group-directories-first'
 eval `dircolors ~/.dotfiles/LS_COLORS`
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
