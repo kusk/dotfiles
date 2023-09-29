@@ -21,6 +21,7 @@ if !filereadable(expand(s:myvimdir . "/autoload/plug.vim"))
   au VimEnter * PlugInstall
 endif
 
+
 call plug#begin()
 
 
@@ -41,6 +42,7 @@ Plug 'tpope/vim-sensible'
 Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
 Plug 'audibleblink/hackthebox.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:SuperTabDefaultCompletionType = "context"
@@ -69,6 +71,7 @@ autocmd FileType python nnoremap <buffer> <C-b> :w \| exec '!clear; python3' she
 nnoremap <C-w> <C-w><C-w>
 nmap <F8> :TagbarToggle<CR>
 let g:indentLine_enabled = 1
+set encoding=UTF-8
 
 " The shift error
 cabbr w1 w
