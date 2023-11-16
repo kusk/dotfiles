@@ -139,7 +139,7 @@ tmux_install()
 
 xfce4_terminal_install()
 {
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing xfce4-terminal"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Settings themes"
     xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
     xfconf-query -c xsettings -p /Net/ThemeName -s "Arc-Darker"
 }
@@ -160,14 +160,45 @@ awesomewm_install()
 diverse_install()
 {
     
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing XFCE4 themes"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing xfce4-terminal config"
     ln -s ~/.dotfiles/themes ~/.themes
     mkdir -p ~/.config/xfce4/terminal/
     cp  -rf ~/.dotfiles/xfce4/terminalrc ~/.config/xfce4/terminal/
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing xfce4-terminal colorscheme"
     git clone https://github.com/arcticicestudio/nord-xfce-terminal ~/.nord-xfce-terminal  > /dev/null 2>&1
     cd ~/.nord-xfce-terminal
     ./install.sh  > /dev/null 2>&1
     cd
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting keyboard shortcurts"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Alt>F4"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Super>Up"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>1"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>2"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>3"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>4"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>5"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>6"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>7"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>8"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts --property "/xfwm4/custom/<Primary><Alt>9"
+   
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>q" -n -t string -s "close_window_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>Shift_R" -n -t string -s "maximize_window_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>1" -n -t string -s "workspace_1_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>2" -n -t string -s "workspace_2_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>3" -n -t string -s "workspace_3_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>4" -n -t string -s "workspace_4_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>5" -n -t string -s "workspace_5_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>6" -n -t string -s "workspace_6_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>7" -n -t string -s "workspace_7_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>8" -n -t string -s "workspace_8_key"
+   xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>9" -n -t string -s "workspace_9_key"
+
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts  --property "/commands/custom/<Primary><Alt>Return"
+   xfconf-query --reset  --channel xfce4-keyboard-shortcuts  --property "/commands/custom/<Primary><Alt>p"
+   xfconf-query -c xfce4-keyboard-shortcuts -n -t 'string' -p '/commands/custom/<Alt>Return' -s xfce4-terminal
+   xfconf-query -c xfce4-keyboard-shortcuts -n -t 'string' -p '/commands/custom/<Alt>p' -s "rofi -modes "run,ssh" -show run"
+
 }
 
 while getopts ":hkdm" option; do
