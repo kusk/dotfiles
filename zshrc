@@ -1,60 +1,28 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# load oh-my-zsh with powerline10k
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerline10k"
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Auto update oh-my-zsh
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' frequency 13
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# oh-my-zsh plugins
+plugins=(git fzf tmux)
 
-# Customize to your needs...
+source $ZSH/oh-my-zsh.sh
 
 
-alias mount_share='/usr/bin/vmhgfs-fuse .host:/share share -o subtype=vmhgfs-fuse,allow_other'
+alias mount_share='/usr/bin/vmhgfs-fuse .host:/share /home/a/share -o subtype=vmhgfs-fuse,allow_other'
 alias df="df -h"
 alias ipa='ip -o -c a'
 alias free="free -h"
 alias myip='curl ifconfig.co'
 alias ll='lsd -lh'
-#alias ll='ls -ABFhvXl --color=auto --group-directories-first --time-style=long-iso'
-#eval `dircolors ~/.dotfiles/LS_COLORS`
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-autoload -Uz promptinit
-promptinit
-prompt powerlevel10k
 
 
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:~/bin:~/.dotfiles/bin:~/.local/bin:/usr/local/lib
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-GREEN="\033[1;32m"
-RED="\033[1;31m"
-PINK="\033[1;35m"
-CYAN="\033[1;36m"
-NOCOLOR="\033[0m"
-
-#echo ${RED}TMUX${NOCOLOR}"\t\t\t""\t"${GREEN}XFCE${NOCOLOR}
-#echo ${PINK}C-a ${CYAN}.${NOCOLOR}"\t\t"Rename session"\t"${PINK}Alt ${CYAN}Print${NOCOLOR}"\t"ScrShot Window
-#echo ${PINK}C-a ${CYAN},${NOCOLOR}"\t\t"Rename window"\t"${PINK}Alt ${CYAN}p${NOCOLOR}"\t\t"Rofi
-#echo ${PINK}C-a ${CYAN}Space${NOCOLOR}"\t"Next window"\t"${PINK}Alt ${CYAN}Enter${NOCOLOR}"\t"Terminal
-#echo ${PINK}C-a ${CYAN}Tab${NOCOLOR}"\t""\t"Window list"\t"${PINK}Alt ${CYAN}Shift${NOCOLOR}"\t"Max/min Window
-#echo ${PINK}C-a ${CYAN}p${NOCOLOR}"\t""\t"Save to log"\t"
-#echo ${PINK}C-a ${CYAN}x${NOCOLOR}"\t""\t"Kill pane"\t"
-#echo ${PINK}C-a ${CYAN}c${NOCOLOR}"\t""\t"Create window"\t"
-#echo ${PINK}C-a ${CYAN}/${NOCOLOR}"\t""\t"Search pane"\t"
-#echo ${PINK}C-a ${CYAN}Enter${NOCOLOR}"\t"Detach pane"\t"
-#echo ${PINK}C-a ${CYAN}Arrows${NOCOLOR}"\t"Create pane"\t"
-#echo ${PINK}M-Select ${CYAN}Enter${NOCOLOR}"\t"Copy text
