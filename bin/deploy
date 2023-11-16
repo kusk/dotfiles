@@ -52,7 +52,7 @@ minimal()
 omz_install()
 {
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing oh-my-zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"  > /dev/null
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing powerline10k"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
