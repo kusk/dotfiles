@@ -15,8 +15,6 @@ ui()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install awesome lsd xfce4-terminal  fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme vlc numix-icon-theme-circle redshift  < /dev/null > /dev/null
 
-    awesomewm_install
-    fonts_install
     xfce4_terminal_install
     diverse_install
 }
@@ -48,6 +46,7 @@ ubuntu()
 {
     echo "Install for Ubuntu"
     minimal
+    ui
 }
 
 minimal()
