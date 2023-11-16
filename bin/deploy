@@ -21,7 +21,7 @@ default()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme redshift  < /dev/null > /dev/null
     vim_install
     omz_install
-    tmux a -t install
+    tmux send-keys -t install ENTER
     fzf_install
     
     
