@@ -58,7 +58,16 @@ minimal()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update   > /dev/null 2>&1
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git apt-transport-https xfce4-terminal open-vm-tools rofi open-vm-tools-desktop htop tmux fzf zsh nmap curl vim python3-pip < /dev/null > /dev/null
 
-    ohmyzsh_install
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"  > /dev/null
+
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing powerline10k"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+   
+    ln -s ~/.dotfiles/zshrc ~/.zshrc
+    ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh 
+
+
     fzf_install
     vim_install
     tmux_install
@@ -80,17 +89,6 @@ fzf_install()
     ln -s ~/.dotfiles/fzf.zsh ~/.fzf.zsh
 }
 
-ohmyzsh_install()
-{
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing oh-my-zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"  > /dev/null
-
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing powerline10k"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-   
-    ln -s ~/.dotfiles/zshrc ~/.zshrc
-    ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh 
-}
 
 vim_install()
 {
