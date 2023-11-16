@@ -16,7 +16,7 @@ default()
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing default Linux apts"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update > /dev/null 2>&1
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme vlc redshift  < /dev/null > /dev/null
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme redshift  < /dev/null > /dev/null
 
     omz_install
     fzf_install
@@ -52,7 +52,7 @@ minimal()
 omz_install()
 {
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing oh-my-zsh"
-    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --skip-chsh)" 
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing powerline10k"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
