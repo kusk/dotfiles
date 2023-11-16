@@ -149,7 +149,7 @@ diverse_install()
     cd
 }
 
-while getopts ":hkucm" option; do
+while getopts ":hkdm" option; do
    case $option in
       h) # display Help
          help
