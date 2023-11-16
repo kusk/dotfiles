@@ -1,6 +1,6 @@
 # load oh-my-zsh with powerline10k
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerline10k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Auto update oh-my-zsh
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
