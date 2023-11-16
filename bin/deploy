@@ -5,11 +5,11 @@ help()
    # Display Help
    echo "-h\tThis Menu"
    echo "-k\tInstalls tools for kali"
-   echo "-l\tInstalls for default Linux"
+   echo "-d\tInstalls for default Linux"
    echo "-m\tInstalls for Linux without UI"
 }
 
-linux()
+default()
 {
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Running default Linux install"
     sudo_install
@@ -157,8 +157,8 @@ while getopts ":hkucm" option; do
       k)
         kali
         exit;;
-      l)
-        linux
+      d)
+        default
         exit;;
       m)
         minimal
