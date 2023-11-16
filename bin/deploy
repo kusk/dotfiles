@@ -21,13 +21,14 @@ default()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme redshift  < /dev/null > /dev/null
     vim_install
     omz_install
+    tmux a -t install
     fzf_install
     
     
     
     xfce4_terminal_install
     diverse_install
-    
+    tmux_install
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Removing unused directories"
     rm -rf ~/Billeder ~/Dokumenter ~/Musik ~/Offentligt ~/Skabeloner ~/Videoklip
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Creating share directories"
