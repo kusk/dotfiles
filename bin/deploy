@@ -60,7 +60,7 @@ omz_install()
 
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing powerline10k"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k    > /dev/null 2>&1
+    git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 
     rm -rf ~/.zshrc
     rm -rf ~/.p10k.zsh 
