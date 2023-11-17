@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 help()
 {
@@ -157,7 +157,7 @@ tmux_install()
 
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing tmux-tpm"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm   > /dev/null 2>&1
-   TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins"
+   export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins"
    "${HOME}/.tmux/plugins/tpm/bin/install_plugins"
 }
 
