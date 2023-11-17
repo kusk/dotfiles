@@ -145,14 +145,8 @@ tmux_install()
 {
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing tmux"
     ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-    git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  >/dev/null
     mkdir ~/.tmux-powerline
     git clone --quiet https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline >/dev/null
-
-   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing tmux plugins"
-   tmux new-session -d
-   ~/.tmux/plugins/tpm/scripts/install_plugins.sh  > /dev/null 2>&1
-   tmux kill-server
 }
 
 
