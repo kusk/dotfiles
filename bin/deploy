@@ -29,6 +29,7 @@ default()
     omz_install
     tmux send-keys -t install ENTER
     fzf_install
+    tmux kill-server
     
     
     
