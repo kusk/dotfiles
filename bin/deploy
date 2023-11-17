@@ -156,10 +156,7 @@ tmux_install()
     mkdir ~/.tmux-powerline
     git clone --quiet https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline >/dev/null
 
-   tmux start-server
-   tmux new-session -d
-   ~/.tmux/plugins/tpm/scripts/install_plugins.sh
-   tmux kill-server
+
 }
 
 
