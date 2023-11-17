@@ -33,6 +33,7 @@ default()
     rm -rf ~/Billeder ~/Dokumenter ~/Musik ~/Offentligt ~/Skabeloner ~/Videoklip
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Creating share directories"
     sudo mkdir ~/share /share
+
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setup done!"
 }
 
@@ -219,6 +220,9 @@ diverse_install()
    xfconf-query --reset  --channel xfce4-keyboard-shortcuts  --property "/commands/custom/<Primary><Alt>p"
    xfconf-query -c xfce4-keyboard-shortcuts -n -t 'string' -p '/commands/custom/<Alt>Return' -s xfce4-terminal
    xfconf-query -c xfce4-keyboard-shortcuts -n -t 'string' -p '/commands/custom/<Alt>p' -s "rofi -modes "run,ssh" -show run"
+
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting wallpaper"
+   xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.dotfiles/wallpapers/clouds.png
 
 }
 
