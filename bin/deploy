@@ -224,6 +224,9 @@ diverse_install()
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting wallpaper"
    xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.dotfiles/wallpapers/clouds.png
 
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting panel"
+   xfce4-panel-profiles load ~/.dotfiles/xfce4/Deploy.tar.bz2
+
 }
 
 while getopts ":hkdm" option; do
