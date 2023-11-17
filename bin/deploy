@@ -151,8 +151,14 @@ tmux_install()
 {
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing tmux"
     ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing tmux-powerline"
     mkdir ~/.tmux-powerline
     git clone --quiet https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline >/dev/null
+
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing tmux-tpm"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm   > /dev/null 2>&1
+    setenv -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.tmux/plugins/"
+   ~/.tmux/plugins/tpm/bin/install_plugins 
 }
 
 
