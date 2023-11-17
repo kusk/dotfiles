@@ -103,7 +103,6 @@ kali()
     sudo pip install mitm6  > /dev/null 2>&1
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Coercer"
     sudo python3 -m pip install coercer  > /dev/null 2>&1
-    sudo mkdir /share
     cd ~/tools
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing krbrelayx"
     git clone https://github.com/dirkjanm/krbrelayx  > /dev/null 2>&1
