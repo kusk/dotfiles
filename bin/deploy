@@ -20,12 +20,15 @@ default()
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing default Linux apts"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme redshift  < /dev/null > /dev/null
 
+   
+
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing vscode"
    wget 'https://go.microsoft.com/fwlink/?LinkID=760868' -O /tmp/vscode.deb > /dev/null 2>&1
     sudo dpkg -i /tmp/vscode.deb > /dev/null 2>&1
    rm -rf /tmp/vscode.deb
 
     vim_install
+    neovim_install
     omz_install
     tmux send-keys -t install ENTER
     fzf_install
@@ -42,6 +45,19 @@ default()
     sudo mkdir ~/share /share
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setup done!"
+}
+
+neovim_install()
+{
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Neovim"
+   cd /tmp > /dev/null 2>&1
+   wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > /dev/null 2>&1
+   tar xzvf nvim-linux64.tar.gz > /dev/null 2>&1
+   cp -r nvim-linux64/* /usr/ > /dev/null 2>&1
+
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing LunarVim"
+   LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh) > /dev/null 2>&1
+   cd
 }
 
 minimal()
