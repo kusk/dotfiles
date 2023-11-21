@@ -56,7 +56,8 @@ neovim_install()
    sudo cp -r nvim-linux64/* /usr/ > /dev/null 2>&1
 
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing LunarVim"
-   #LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh) > /dev/null 2>&1
+   wget https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh > /dev/null 2>&1
+   bash ./install.sh --no-install-dependencies
    cd
 }
 
@@ -122,18 +123,26 @@ kali()
     mkdir ~/tools
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Kali apts"
     sudo  DEBIAN_FRONTEND=noninteractive apt-get -qq install nuclei bloodhound bloodhound.py  > /dev/null 2>&1
+
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Configuring Neo4j"
+    sudo sed -i 's/#dbms.security.auth_enabled=false/dbms.security.auth_enabled=false/g' /etc/neo4j/neo4j.conf
+
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing mitm6"
     sudo pip install mitm6  > /dev/null 2>&1
+
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Coercer"
     sudo python3 -m pip install coercer  > /dev/null 2>&1
+
     cd ~/tools
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing krbrelayx"
     git clone https://github.com/dirkjanm/krbrelayx  > /dev/null 2>&1
+
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Aquatone"
     wget https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip   > /dev/null 2>&1
     unzip aquatone_linux_amd64_1.7.0.zip  > /dev/null 2>&1
     sudo mv aquatone /usr/sbin/
     rm -rf README.md LICENSE.txt aquatone_linux_amd64_1.7.0.zip
+
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing ADExplorerSnapshot"
     cd /tmp
     git clone https://github.com/c3c/ADExplorerSnapshot.py.git    > /dev/null 2>&1
@@ -141,7 +150,7 @@ kali()
     pip3 install --user .    > /dev/null 2>&1
     cd
 
-   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Done!"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Done!"
 }
 
 
