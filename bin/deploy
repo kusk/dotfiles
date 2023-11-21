@@ -263,6 +263,8 @@ diverse_install()
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting panel"
    xfce4-panel-profiles load ~/.dotfiles/xfce4/Deploy.tar.bz2
 
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting fuse permissions"
+   sed -i 's/#user_allow_other/user_allow_other/g' /etc/fuse.conf  > /dev/null 2>&1
 }
 
 while getopts ":hkdm" option; do
