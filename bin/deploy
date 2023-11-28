@@ -9,7 +9,7 @@ help()
    echo "-u\tInstalls for Linux with UI"
 }
 
-banner() { echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m$1" }
+banner() { echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m" }
 
 
 default()
