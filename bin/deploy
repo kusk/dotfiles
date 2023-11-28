@@ -271,7 +271,7 @@ ui()
    sed -i 's/#user_allow_other/user_allow_other/g' /etc/fuse.conf  > /dev/null 2>&1
 }
 
-while getopts ":hkdm" option; do
+while getopts ":hkdu" option; do
    case $option in
       h) # display Help
          help
