@@ -72,7 +72,7 @@ neovim_install()
 
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing LunarVim"
    wget https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh > /dev/null 2>&1
-   bash ./install.sh --no-install-dependencies
+   bash ./install.sh --no-install-dependencies   > /dev/null 2>&1
    cd
 }
 
