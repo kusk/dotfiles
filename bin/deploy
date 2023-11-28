@@ -28,7 +28,7 @@ default()
     vim_install
     neovim_install
     omz_install
-    ripgrep_install()
+    ripgrep_install
     bat_install
     thefuck_install
     tmux send-keys -t install ENTER
