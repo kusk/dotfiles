@@ -14,6 +14,8 @@ default()
     figlet Deploying!
     sudo_install
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Running default Linux install"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting locale to en_US.UTF-8"
+    sudo localectl set-locale LANG=en_US.UTF-8
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Updating apt repositories"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update > /dev/null 2>&1
