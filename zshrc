@@ -1,3 +1,4 @@
+source ~/.dotfiles/zsh-defer/zsh-defer.plugin.zsh
 # load oh-my-zsh with powerline10k
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
