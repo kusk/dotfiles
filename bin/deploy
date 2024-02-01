@@ -102,7 +102,8 @@ omz_install()
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing zsh-syntax-highlighting"
    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting    > /dev/null 2>&1
 
-   
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing zsh-defer"
+   git clone https://github.com/romkatv/zsh-defer.git ~/.dotfiles/zsh-defer    > /dev/null 2>&1
 }
 
 kali()
