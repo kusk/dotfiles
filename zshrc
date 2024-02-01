@@ -7,7 +7,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 zstyle ':omz:update' frequency 13
 
 # oh-my-zsh plugins
-plugins=(git fzf)
+plugins=(git fzf tmux command-not-found vscode gitignore autojump)
 
 source $ZSH/oh-my-zsh.sh
 
