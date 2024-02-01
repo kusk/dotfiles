@@ -21,7 +21,7 @@ default()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update > /dev/null 2>&1
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing default Linux apts"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd  < /dev/null > /dev/null
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git apt-transport-https htop tmux zsh nmap thefuck curl vim python3-pip < /dev/null > /dev/null
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git autojump apt-transport-https htop tmux zsh nmap thefuck curl vim python3-pip < /dev/null > /dev/null
 
 
     vim_install
