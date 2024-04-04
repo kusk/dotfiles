@@ -1,0 +1,12 @@
+#!/bin/bash
+while getopts u:p:h:s: flag
+do
+    case "${flag}" in
+        u) username=${OPTARG};;
+        p) password=${OPTARG};;
+        h) hostname=${OPTARG};;
+        s) share=${OPTARG};;
+    esac
+done
+
+smbclient "//"$hostname"/"$share -U $username\%$password
