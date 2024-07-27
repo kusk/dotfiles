@@ -33,6 +33,7 @@ default()
     tmux send-keys -t install ENTER
     fzf_install
     tmux kill-server
+    micro_install
     
     tmux_install
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Removing unused directories"
@@ -41,6 +42,16 @@ default()
     sudo mkdir ~/share /share
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setup done!"
+}
+
+micro_install()
+{
+   echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing micro"
+   cd
+   curl https://getmic.ro | bash  > /dev/null 2>&1
+   mv ~/micro ~/.dotfiles/bin/micro
+   mkdir -p ~/.config/micro
+   ln -s ~/.dotfiles/micro.json ~/.config/micro/settings.json
 }
 
 thefuck_install()
