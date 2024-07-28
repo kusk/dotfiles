@@ -126,7 +126,7 @@ kali_cli()
 kali_ui()
 {
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing Kali apts"
-    sudo  DEBIAN_FRONTEND=noninteractive apt-get -qq install bloodhound  > /dev/null 2>&1
+    sudo  DEBIAN_FRONTEND=noninteractive apt-get -qq install bloodhound rofi > /dev/null 2>&1
 
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Configuring Neo4j"
     sudo sed -i 's/#dbms.security.auth_enabled=false/dbms.security.auth_enabled=false/g' /etc/neo4j/neo4j.conf
