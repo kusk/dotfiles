@@ -4,7 +4,7 @@
 cli()
 {
     sudo_install
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Running default Linux install"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Running default Linux Cli install"
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setting locale to en_US.UTF-8"
     sudo localectl set-locale LANG=en_US.UTF-8
 
@@ -31,7 +31,7 @@ cli()
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Creating share directories"
     sudo mkdir ~/share /share
 
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Setup done!"
+    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Default Linux Cli install done!"
 }
 
 micro_install()
