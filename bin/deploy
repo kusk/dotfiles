@@ -15,8 +15,8 @@ cli()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git micro curl vim sudo apt-transport-https htop tmux zsh nmap curl vim python3-pip < /dev/null > /dev/null
 
 
-    vim_install
-    neovim_install
+    #vim_install
+    #neovim_install
     omz_install
     ripgrep_install
     bat_install
