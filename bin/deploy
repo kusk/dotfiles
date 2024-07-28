@@ -195,7 +195,7 @@ awesomewm_install()
 ui()
 {
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing UI apps"
-   sudo DEBIAN_FRONTEND=noninteractive  xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme redshift > /dev/null 2>&1
+   sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install xfce4-terminal fonts-powerline fonts-fork-awesome fonts-font-awesome rofi suckless-tools arc-theme redshift > /dev/null 2>&1
 
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Settings themes"
    xfconf-query -c xfwm4 -p /general/theme -s "Aluminum"
