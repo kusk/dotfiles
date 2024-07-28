@@ -20,9 +20,9 @@ cli()
     omz_install
     ripgrep_install
     bat_install
-    tmux send-keys -t install ENTER
+    #tmux send-keys -t install ENTER
     fzf_install
-    tmux kill-server
+    #tmux kill-server
     micro_install
     
     tmux_install
