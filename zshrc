@@ -19,6 +19,7 @@ alias ipa='ip -o -c a'
 alias free="free -h"
 alias myip='curl ifconfig.co'
 alias ll='lsd -lh'
+alias m='micro'
 
 alias cp='nocorrect cp'         # no spelling correction on cp
 alias mkdir='nocorrect mkdir'   # no spelling correction on mkdir
