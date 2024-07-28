@@ -287,10 +287,10 @@ while true; do
     echo [5] Exit
     read -p "What to deploy? " yn
     case $yn in
-        [1]* ) cli; kali_cli; kali_ui;;
-        [2]* ) cli; kali_cli;;
-        [3]* ) cli; linux_ui;;
-        [4]* ) cli;;
+        [1]* ) cli; kali_cli; kali_ui; exit;;
+        [2]* ) cli; kali_cli; exit;;
+        [3]* ) cli; linux_ui; exit;;
+        [4]* ) cli; exit;;
         [5]* ) exit;;
         * ) echo "Please select dotfiles deployment.";;
     esac
