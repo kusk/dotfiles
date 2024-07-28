@@ -12,7 +12,7 @@ cli()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update > /dev/null 2>&1
     echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing default Linux apts"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd  < /dev/null > /dev/null
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git curl vim sudo apt-transport-https htop tmux zsh nmap curl vim python3-pip < /dev/null > /dev/null
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git micro curl vim sudo apt-transport-https htop tmux zsh nmap curl vim python3-pip < /dev/null > /dev/null
 
 
     vim_install
@@ -37,9 +37,6 @@ cli()
 micro_install()
 {
    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Installing micro"
-   cd
-   curl https://getmic.ro | bash  > /dev/null 2>&1
-   mv ~/micro ~/.dotfiles/bin/micro
    mkdir -p ~/.config/micro
    ln -s ~/.dotfiles/micro.json ~/.config/micro/settings.json
 }
