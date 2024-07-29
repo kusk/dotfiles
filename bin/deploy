@@ -249,7 +249,7 @@ echo ' | | ___   _ ___| | __   / /_| | ___ | |_| |_ _| | ___  ___ '
 echo ' | |/ / | | / __| |/ /  / / _` |/ _ \| __|  _| | |/ _ \/ __|'
 echo ' |   <| |_| \__ \   <  / / (_| | (_) | |_| | | | |  __/\__ \'
 echo ' |_|\_\\__,_|___/_|\_\/_/ \__,_|\___/ \__|_| |_|_|\___||___/'
-
+echo ''
 text_install ()
 {
     echo "\e[1;37m[\e[0;34mInstall\e[1;37m] \e[0;0m$1" 
@@ -276,7 +276,7 @@ while true; do
     echo [1] Kali with UI
     echo [2] Kali without UI
     echo [3] Basic Linux with UI
-    echo [4] Basic Lionux without UI
+    echo [4] Basic Linux without UI
     echo [5] Exit
     read -p "What to deploy? " yn
     case $yn in
