@@ -265,6 +265,11 @@ text_other ()
     echo "\e[1;37m[\e[0;31mOther\e[1;37m] \e[0;0m$1" 
 }
 
+done ()
+{
+    text_other Done!
+}
+
 clone ()
 {
     text_install "Cloning dotfiles"
@@ -280,10 +285,10 @@ while true; do
     echo [5] Exit
     read -p "What to deploy? " yn
     case $yn in
-        [1]* ) clone; cli; ui; kali_cli; kali_ui; exit;;
-        [2]* ) clone; cli; kali_cli; exit;;
-        [3]* ) clone; cli; ui; exit;;
-        [4]* ) clone; cli; exit;;
+        [1]* ) clone; cli; ui; kali_cli; kali_ui; done; exit;;
+        [2]* ) clone; cli; kali_cli; done; exit;;
+        [3]* ) clone; cli; ui; done; exit;;
+        [4]* ) clone; cli; done; exit;;
         [5]* ) exit;;
         * ) echo "Please select dotfiles deployment.";;
     esac
