@@ -19,22 +19,17 @@ cli()
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd  < /dev/null > /dev/null
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git wget micro curl vim sudo apt-transport-https htop tmux zsh nmap curl python3-pip < /dev/null > /dev/null
 
-
-
     omz_install
     ripgrep_install
     fzf_install
     micro_install
     tmux_install
 
-
-    text_other "Removing unused directories"
+    text_configure "Removing unused directories"
     rm -rf ~/Billeder ~/Dokumenter ~/Musik ~/Offentligt ~/Skabeloner ~/Videoklip
 
-    text_other "Creating share directories"
+    text_configure "Creating share directories"
     sudo mkdir ~/share /share
-
-    echo "\e[1;37m[\e[1;33m+\e[1;37m] \e[0;0m Default Linux Cli install done!"
 }
 
 micro_install()
@@ -151,7 +146,7 @@ tmux_install()
     text_install "Installing tmux"
     ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
-    test_install "Installing tmux-powerline"
+    text_install "Installing tmux-powerline"
     mkdir ~/.tmux-powerline
     git clone --quiet https://github.com/erikw/tmux-powerline.git ~/.tmux-powerline >/dev/null
 }
@@ -167,7 +162,7 @@ ui()
 
 
     # Visual Studio Code
-    test_install "Installing vscode"
+    text_install "Installing vscode"
     wget 'https://go.microsoft.com/fwlink/?LinkID=760868' -O /tmp/vscode.deb > /dev/null 2>&1
     sudo dpkg -i /tmp/vscode.deb > /dev/null 2>&1
     rm -rf /tmp/vscode.deb
@@ -270,6 +265,12 @@ text_other ()
     echo "\e[1;37m[\e[0;31mOther\e[1;37m] \e[0;0m$1" 
 }
 
+clone ()
+{
+    text_install "Cloning dotfiles"
+    git clone --quiet https://github.com/kusk/dotfiles ~/.dotfiles   > /dev/null 2>&1
+}
+
 
 while true; do
     echo [1] Kali with UI
@@ -279,10 +280,10 @@ while true; do
     echo [5] Exit
     read -p "What to deploy? " yn
     case $yn in
-        [1]* ) cli; ui; kali_cli; kali_ui; exit;;
-        [2]* ) cli; kali_cli; exit;;
-        [3]* ) cli; ui; exit;;
-        [4]* ) cli; exit;;
+        [1]* ) clone; cli; ui; kali_cli; kali_ui; exit;;
+        [2]* ) clone; cli; kali_cli; exit;;
+        [3]* ) clone; cli; ui; exit;;
+        [4]* ) clone; cli; exit;;
         [5]* ) exit;;
         * ) echo "Please select dotfiles deployment.";;
     esac
