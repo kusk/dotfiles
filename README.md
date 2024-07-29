@@ -1,5 +1,6 @@
-**dotfiles for zsh, vim with powerline, tmux, dwm.**
+**dotfiles for zsh, tmux, etc**
 
-git clone https://github.com/kusk/dotfiles .dotfiles
 
-~/.dotfiles/bin/deploy -d
+~~~
+bash <(wget -qO- https://raw.githubusercontent.com/kusk/dotfiles/master/bin/deploy)
+~~~
