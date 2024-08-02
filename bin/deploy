@@ -267,7 +267,7 @@ text_other ()
 
 done ()
 {
-    text_other "Done!"
+    echo "\e[1;37m[\e[0;31mDone!\e[1;37m] \e[0;0m$1" 
 }
 
 clone ()
