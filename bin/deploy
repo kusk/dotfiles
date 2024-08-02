@@ -267,7 +267,7 @@ text_other ()
 
 done ()
 {
-    text_other Done!
+    text_other "Done!"
 }
 
 clone ()
