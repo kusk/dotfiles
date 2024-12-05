@@ -37,6 +37,7 @@ micro_install()
    text_install "Installing micro"
    mkdir -p ~/.config/micro
    ln -s ~/.dotfiles/micro.json ~/.config/micro/settings.json
+   micro -plugin install gotham-colors
 }
 
 
