@@ -40,6 +40,11 @@ micro_install()
    micro -plugin install gotham-colors
 }
 
+{
+    text_install "Installing atuin"
+    curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+    atuin login -u a
+}
 
 ripgrep_install()
 {
