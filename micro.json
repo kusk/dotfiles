@@ -1,5 +1,5 @@
 {
     "autosu": true,
-    "colorscheme": "atom-dark",
+    "colorscheme": "gotham-colors",
     "multiopen": "vsplit"
 }
