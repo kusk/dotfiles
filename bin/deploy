@@ -43,6 +43,7 @@ micro_install()
 {
     text_install "Installing atuin"
     curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+    ln -s ~/.dotfiles/atuin.toml ~/.config/atuin/config.toml
     atuin login -u a
 }
 
