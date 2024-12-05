@@ -28,7 +28,7 @@ alias rm='nocorrect rm'         # no spelling correction on rm
 
 alias httpdump='sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
-alias vim='lvim'
+alias vim='micro'
 
 # mkdir, cd into it (via http://onethingwell.org/post/586977440/mkcd-improved)
 function mkcd () {
