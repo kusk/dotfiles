@@ -1,5 +1,68 @@
-#!/bin/sh
+#!/usr/bin/env bash
+function select_option {
 
+    # little helpers for terminal print control and key input
+    ESC=$( printf "\033")
+    cursor_blink_on()  { printf "$ESC[?25h"; }
+    cursor_blink_off() { printf "$ESC[?25l"; }
+    cursor_to()        { printf "$ESC[$1;${2:-1}H"; }
+    print_option()     { printf "   $1 "; }
+    print_selected()   { printf "  $ESC[7m $1 $ESC[27m"; }
+    get_cursor_row()   { IFS=';' read -sdR -p $'\E[6n' ROW COL; echo ${ROW#*[}; }
+    key_input()        { read -s -n3 key 2>/dev/null >&2
+                         if [[ $key = $ESC[A ]]; then echo up;    fi
+                         if [[ $key = $ESC[B ]]; then echo down;  fi
+                         if [[ $key = ""     ]]; then echo enter; fi; }
+
+    # initially print empty new lines (scroll down if at bottom of screen)
+    for opt; do printf "\n"; done
+
+    # determine current screen position for overwriting the options
+    local lastrow=`get_cursor_row`
+    local startrow=$(($lastrow - $#))
+
+    # ensure cursor and input echoing back on upon a ctrl+c during read -s
+    trap "cursor_blink_on; stty echo; printf '\n'; exit" 2
+    cursor_blink_off
+
+    local selected=0
+    while true; do
+        # print options by overwriting the last lines
+        local idx=0
+        for opt; do
+            cursor_to $(($startrow + $idx))
+            if [ $idx -eq $selected ]; then
+                print_selected "$opt"
+            else
+                print_option "$opt"
+            fi
+            ((idx++))
+        done
+
+        # user key control
+        case `key_input` in
+            enter) break;;
+            up)    ((selected--));
+                   if [ $selected -lt 0 ]; then selected=$(($# - 1)); fi;;
+            down)  ((selected++));
+                   if [ $selected -ge $# ]; then selected=0; fi;;
+        esac
+    done
+
+    # cursor position back to normal
+    cursor_to $lastrow
+    printf "\n"
+    cursor_blink_on
+
+    return $selected
+}
+
+function select_opt {
+    select_option "$@" 1>&2
+    local result=$?
+    echo $result
+    return $result
+}
 
 cli()
 {
@@ -17,13 +80,14 @@ cli()
 
     text_install "Installing default Linux apts"
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install lsd  < /dev/null > /dev/null
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git wget micro curl vim sudo apt-transport-https htop tmux zsh nmap curl python3-pip < /dev/null > /dev/null
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install git wget micro curl atuin vim sudo apt-transport-https htop tmux zsh nmap curl python3-pip < /dev/null > /dev/null
 
     omz_install
     ripgrep_install
     fzf_install
     micro_install
     tmux_install
+    atuin_install
 
     text_configure "Removing unused directories"
     rm -rf ~/Billeder ~/Dokumenter ~/Musik ~/Offentligt ~/Skabeloner ~/Videoklip
@@ -32,31 +96,15 @@ cli()
     sudo mkdir ~/share /share
 }
 
-micro_install()
-{
-   text_install "Installing micro"
-   mkdir -p ~/.config/micro
-   ln -s ~/.dotfiles/micro.json ~/.config/micro/settings.json
-   micro -plugin install gotham-colors
-}
 
-{
-    text_install "Installing atuin"
-    curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
-    ln -s ~/.dotfiles/atuin.toml ~/.config/atuin/config.toml
-    atuin login -u a
-}
+text_install () { echo -e "\e[1;37m[\e[0;34mInstall\e[1;37m] \e[0;0m$1"; }
+text_configure () { echo -e "\e[1;37m[\e[0;32mConfigure\e[1;37m] \e[0;0m$1"; }
+text_other () { echo -e "\e[1;37m[\e[0;31mOther\e[1;37m] \e[0;0m$1"; }
 
-ripgrep_install()
-{
-   text_install "Installing ripgrep"
-   curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1
-   sudo dpkg -i ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1
-   rm -rf ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1
-}
-
-
-
+clone () { text_install "Cloning dotfiles"; git clone --quiet https://github.com/kusk/dotfiles ~/.dotfiles2   > /dev/null 2>&1; }
+micro_install() { text_install "Installing micro"; mkdir -p ~/.config/micro; ln -s ~/.dotfiles/micro.json ~/.config/micro/settings.json; micro -plugin install gotham-colors > /dev/null 2>&1; }
+atuin_install() { text_install "Installing atuin"; ln -s ~/.dotfiles/atuin.toml ~/.config/atuin/config.toml; atuin login -u a; }
+ripgrep_install() { text_install "Installing ripgrep"; curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1; sudo dpkg -i ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1; rm -rf ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1; }
 
 omz_install()
 {
@@ -64,7 +112,6 @@ omz_install()
     mkdir -p ~/tmp && curl -o ~/tmp/install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh   > /dev/null 2>&1
     sh ~/tmp/install.sh --skip-chsh --unattended > /dev/null 2>&1
     rm ~/tmp/install.sh  > /dev/null 2>&1
-
 
     text_install "Installing powerline10k"
     git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k     > /dev/null 2>&1
@@ -75,15 +122,12 @@ omz_install()
     ln -s ~/.dotfiles/zshrc ~/.zshrc
     ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh 
 
-
     text_install "Installing zsh-autosuggestions"
     mkdir -p ~/.zsh
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions  > /dev/null 2>&1
 
-
     text_install "Installing zsh-syntax-highlighting"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting    > /dev/null 2>&1
-
 
     text_install "Installing zsh-defer"
     git clone https://github.com/romkatv/zsh-defer.git ~/.dotfiles/zsh-defer    > /dev/null 2>&1
@@ -248,8 +292,6 @@ ui()
     sed -i 's/#user_allow_other/user_allow_other/g' /etc/fuse.conf  > /dev/null 2>&1
 }
 
-
-
 echo '  _              _         __ _       _    __ _ _           '
 echo ' | |            | |       / /| |     | |  / _(_) |          '
 echo ' | | ___   _ ___| | __   / /_| | ___ | |_| |_ _| | ___  ___ '
@@ -257,43 +299,13 @@ echo ' | |/ / | | / __| |/ /  / / _` |/ _ \| __|  _| | |/ _ \/ __|'
 echo ' |   <| |_| \__ \   <  / / (_| | (_) | |_| | | | |  __/\__ \'
 echo ' |_|\_\\__,_|___/_|\_\/_/ \__,_|\___/ \__|_| |_|_|\___||___/'
 echo ''
-text_install ()
-{
-    echo "\e[1;37m[\e[0;34mInstall\e[1;37m] \e[0;0m$1" 
-}
 
-text_configure ()
-{
-    echo "\e[1;37m[\e[0;32mConfigure\e[1;37m] \e[0;0m$1" 
-}
-
-text_other ()
-{
-    echo "\e[1;37m[\e[0;31mOther\e[1;37m] \e[0;0m$1" 
-}
+case `select_opt "Kali without UI" "Kali with UI" "Linux without UI" "Linux with UI" "Cancel"` in
+    0) echo "Kali without UI"; clone; cli; kali_cli;;
+    1) echo "Kali with UI"; clone; cli; ui; kali_cli; kali_ui;;
+    2) echo "Linux without UI"; clone; cli;;
+    3) echo "Linux with UI"; clone; cli; ui;;
+esac
 
 
-clone ()
-{
-    text_install "Cloning dotfiles"
-    git clone --quiet https://github.com/kusk/dotfiles ~/.dotfiles   > /dev/null 2>&1
-}
-
-
-while true; do
-    echo [1] Kali with UI
-    echo [2] Kali without UI
-    echo [3] Basic Linux with UI
-    echo [4] Basic Linux without UI
-    echo [5] Exit
-    read -p "What to deploy? " yn
-    case $yn in
-        [1]* ) clone; cli; ui; kali_cli; kali_ui; exit;;
-        [2]* ) clone; cli; kali_cli; exit;;
-        [3]* ) clone; cli; ui; exit;;
-        [4]* ) clone; cli; exit;;
-        [5]* ) exit;;
-        * ) echo "Please select dotfiles deployment.";;
-    esac
-done
 
