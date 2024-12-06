@@ -103,7 +103,7 @@ text_other () { echo -e "\e[1;37m[\e[0;31mOther\e[1;37m] \e[0;0m$1"; }
 
 clone () { text_install "Cloning dotfiles"; git clone --quiet https://github.com/kusk/dotfiles ~/.dotfiles2   > /dev/null 2>&1; }
 micro_install() { text_install "Installing micro"; mkdir -p ~/.config/micro; ln -s ~/.dotfiles/micro.json ~/.config/micro/settings.json; micro -plugin install gotham-colors > /dev/null 2>&1; }
-atuin_install() { text_install "Installing atuin"; ln -s ~/.dotfiles/atuin.toml ~/.config/atuin/config.toml; atuin login -u a; }
+atuin_install() { text_install "Installing atuin"; mkdir ~/.config/atuin/; ln -s ~/.dotfiles/atuin.toml ~/.config/atuin/config.toml; atuin login -u a; }
 ripgrep_install() { text_install "Installing ripgrep"; curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1; sudo dpkg -i ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1; rm -rf ripgrep_13.0.0_amd64.deb  > /dev/null 2>&1; }
 
 omz_install()
